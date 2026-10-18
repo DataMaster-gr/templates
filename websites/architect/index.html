@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Houses - Sustainable Architecture</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ======== CUSTOM CSS VARIABLES ======== */
+        :root {
+            --primary-color: #2a9d8f;   /* Main Green */
+            --secondary-color: #264653; /* Dark Blue/Green */
+            --accent-color: #e76f51;    /* Bright Orange CTA */
+            --light-bg: #f8f9fa;
+        }
+
+        /* ======== GLOBAL & TYPOGRAPHY STYLES ======== */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        .subheading {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 3rem;
+        }
+
+        /* Set default button colors */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #248a7f;
+            border-color: #248a7f;
+        }
+
+        .btn-check:focus+.btn-primary, .btn-primary:focus {
+            background-color: #248a7f;
+            border-color: #248a7f;
+            box-shadow: 0 0 0 0.25rem rgba(42, 157, 143, 0.5);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(42, 157, 143, 0.25);
+        }
+
+        /* ======== SECTION PADDING ======== */
+        section {
+            padding: 5rem 0;
+        }
+
+        /* ======== HEADER & NAVIGATION ======== */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+        }
+
+        /* Call to Action (CTA) Button in Navbar */
+        .navbar .cta-button {
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50px; /* Pill shape */
+            font-weight: 700;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .cta-button:hover {
+            background-color: #f4a261; /* Lighter orange */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* ======== HERO SECTION ======== */
+        #hero {
+            height: 85vh;
+            background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+            position: relative;
+            color: #fff;
+            padding: 0; /* Remove section padding */
+        }
+        
+        /* Dark overlay for readability */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Hero content container */
+        #hero .container {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+        }
+        
+        #hero h1 {
+            color: #fff;
+            font-size: 3.5rem;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ======== SERVICES SECTION ======== */
+        #services {
+            background-color: var(--light-bg);
+        }
+
+        #services .card {
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        #services .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        #services .card-title {
+            color: var(--primary-color);
+        }
+
+        /* ======== PORTFOLIO SECTION ======== */
+        #portfolio .card {
+            overflow: hidden;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        #portfolio .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Fixed height for portfolio images */
+        .portfolio-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* ======== MAP CONTAINER ======== */
+        .map-container {
+            border-radius: 0.375rem; /* Bootstrap's default border radius */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ======== FOOTER ======== */
+        footer {
+            background-color: var(--secondary-color);
+            color: #f4f4f4;
+        }
+
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">Green Houses</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">Our Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                            <a class="btn cta-button" href="https://calendly.com" target="_blank">Book an Appointment</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container h-100">
+                <div class="row h-100 justify-content-center align-items-center text-center">
+                    <div class="col-lg-10">
+                        <h1 class="display-3 fw-bold">Building Sustainable Futures</h1>
+                        <p class="lead my-4">Specialists in eco-friendly residential design and carbon-neutral development.</p>
+                        <a href="#portfolio" class="btn btn-primary btn-lg">View Our Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2>About Green Houses</h2>
+                        <p class="subheading">Our Philosophy & History</p>
+                    </div>
+                </div>
+                
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="A modern sustainable house" class="img-fluid rounded shadow">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>Our Story</h3>
+                        <p>Founded in 2010, Green Houses was born from a desire to merge cutting-edge architectural design with uncompromising sustainability. We believe that beautiful homes shouldn't cost the earth. For over a decade, we've been dedicated to pioneering new methods in green building.</p>
+                        
+                        <h3>Our Mission</h3>
+                        <p>Our mission is simple: to design and build homes that are healthy for both people and the planet. We are committed to using locally-sourced, renewable materials, minimizing construction waste, and creating spaces that are not only energy-efficient but also deeply connected to the natural environment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2>Our Services</h2>
+                        <p class="subheading">What We Offer</p>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="card p-4 text-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Sustainable Architectural Design</h4>
+                                <p class="card-text">From initial sketches to full 3D renders, our team designs beautiful, functional spaces that harmonize with their surroundings.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="card p-4 text-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Custom Eco-Builds</h4>
+                                <p class="card-text">We manage the entire construction process, using sustainable materials and practices to bring your green home to life.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex align-items-stretch">
+                        <div class="card p-4 text-center">
+                            <div class="card-body">
+                                <h4 class="card-title">Net-Zero Renovations</h4>
+                                <p class="card-text">Transform your existing property into an energy-efficient marvel. We specialize in retrofitting homes with the latest green technology.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2>Past & Current Work</h2>
+                        <p class="subheading">A gallery of our finest projects.</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Forest Retreat">
+                            <div class="card-body">
+                                <h4 class="card-title">The Forest Retreat</h4>
+                                <p class="card-text">A passive-solar home built with reclaimed timber, nestled in the woods.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Urban Eco-Loft">
+                            <div class="card-body">
+                                <h4 class="card-title">Urban Eco-Loft</h4>
+                                <p class="card-text">A multi-unit development featuring a green roof and greywater recycling system.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Coastal Modern">
+                            <div class="card-body">
+                                <h4 class="card-title">The Coastal Modern</h4>
+                                <p class="card-text">Designed to maximize natural light and ventilation, minimizing A/C usage.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Net-Zero Suburban">
+                            <div class="card-body">
+                                <h4 class="card-title">Net-Zero Suburban</h4>
+                                <p class="card-text">A family home renovation that now produces more energy than it consumes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Hillside Passive">
+                            <div class="card-body">
+                                <h4 class="card-title">The Hillside Passive</h4>
+                                <p class="card-text">Built into the landscape to leverage geothermal heating and cooling.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="card">
+                            <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top portfolio-img" alt="The Minimalist Cabin">
+                            <div class="card-body">
+                                <h4 class="card-title">The Minimalist Cabin</h4>
+                                <p class="card-text">A small-footprint home built entirely from locally-sourced, non-toxic materials.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-light">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2>Get In Touch</h2>
+                        <p class="subheading">We'd love to hear about your project.</p>
+                    </div>
+                </div>
+                
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <h3>Send Us an Inquiry</h3>
+                        <form action="#" method="POST">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone (Optional)</label>
+                                <input type="tel" class="form-control" id="phone" name="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Tell us about your project</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <h3>Our Office</h3>
+                        <p class="fs-5">2 Ermou, Athens, 105 63, Greece</p>
+                        <p class="fs-5"><strong>Email:</strong> info@datamaster.com</p>
+                        <p class="fs-5 mb-4"><strong>Phone:</strong> +30 210 331 3034</p>
+                        
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.674939007604!2d23.732295176311503!3d37.97550420057113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd3e92480435%3A0x68ba1057cb0d560e!2zzqDOuy4gzqPPhc69z4TOrM6zzrzOsc-Ezr_PgiwgzpHOuM6uzr3OsQ!5e1!3m2!1sel!2sgr!4v1761284530286!5m2!1sel!2sgr" 
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Green Houses. All rights reserved. | Sustainable Architecture & Development</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
