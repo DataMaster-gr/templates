@@ -9,11 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* keep section titles visible below the sticky header */
+        }
         body {
             font-family: 'Inter', sans-serif;
         }
         .hero-section {
-            background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=CoJim+Couriers');
+            background-image: url('https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1920');
             background-size: cover;
             background-position: center;
         }
@@ -48,12 +52,12 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero-section text-white h-[60vh] flex items-center">
-            <div class="bg-black bg-opacity-50 w-full h-full flex items-center">
+        <section class="hero-section text-white min-h-[60vh] flex">
+            <div class="bg-black/60 w-full flex items-center py-16">
                 <div class="container mx-auto px-6 text-center">
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">Your Trusted Delivery Partner</h1>
                     <p class="text-lg md:text-xl mb-8">Delivering your packages with speed, care, and reliability.</p>
-                    <a href="#services" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-md hover:bg-gray-200 transition duration-300">Explore Our Services</a>
+                    <a href="#services" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-md hover:bg-gray-200 transition duration-300">Explore Our Services</a>
                 </div>
             </div>
         </section>
@@ -68,19 +72,19 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Service Card 1 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Same-Day" alt="Same-Day Delivery" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Service+Image';">
+                        <img src="https://images.pexels.com/photos/6868618/pexels-photo-6868618.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy" alt="Same-Day Delivery" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Service+Image';">
                         <h3 class="text-xl font-semibold mb-2">Same-Day Delivery</h3>
                         <p class="text-gray-600">Need it there today? Our express same-day service ensures your urgent packages arrive on time within the city.</p>
                     </div>
                     <!-- Service Card 2 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/10B981/FFFFFF?text=National" alt="National Shipping" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/10B981/FFFFFF?text=Service+Image';">
+                        <img src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy" alt="National Shipping" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/10B981/FFFFFF?text=Service+Image';">
                         <h3 class="text-xl font-semibold mb-2">National Shipping</h3>
                         <p class="text-gray-600">We connect cities and towns across the country with our reliable and cost-effective national shipping network.</p>
                     </div>
                     <!-- Service Card 3 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition duration-300">
-                        <img src="https://placehold.co/600x400/F59E0B/FFFFFF?text=International" alt="International Courier" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F59E0B/FFFFFF?text=Service+Image';">
+                        <img src="https://images.pexels.com/photos/4481259/pexels-photo-4481259.jpeg?auto=compress&cs=tinysrgb&w=800" loading="lazy" alt="International Courier" class="mx-auto h-48 w-full object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F59E0B/FFFFFF?text=Service+Image';">
                         <h3 class="text-xl font-semibold mb-2">International Courier</h3>
                         <p class="text-gray-600">Go global with CoJim. We handle customs and logistics to deliver your packages anywhere in the world, hassle-free.</p>
                     </div>
@@ -92,10 +96,10 @@
         <section id="about" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/2">
-                        <img src="team.png" alt="Our Team" class="rounded-lg shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6366F1/FFFFFF?text=About+Us';">
+                    <div class="w-full md:w-1/2">
+                        <img src="team.png" alt="Our Team" class="w-full h-auto rounded-lg shadow-2xl" onerror="this.onerror=null;this.src='https://placehold.co/600x400/6366F1/FFFFFF?text=About+Us';">
                     </div>
-                    <div class="md:w-1/2">
+                    <div class="w-full md:w-1/2">
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose CoJim?</h2>
                         <p class="text-gray-600 mb-4">CoJim Couriers was founded with a simple mission: to provide a delivery service that's as reliable as it is friendly. We believe that shipping a package should be a stress-free experience. Our team is dedicated to handling every parcel with the utmost care, ensuring it reaches its destination safely and on schedule.</p>
                         <p class="text-gray-600">With state-of-the-art tracking technology and a commitment to customer satisfaction, we are your partners in logistics. We're more than just a courier service; we're a team of professionals dedicated to connecting people and businesses.</p>

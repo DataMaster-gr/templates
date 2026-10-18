@@ -21,6 +21,10 @@
         }
 
         /* ======== GLOBAL & TYPOGRAPHY STYLES ======== */
+        html {
+            scroll-padding-top: 90px; /* keep section titles visible below the fixed navbar */
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
@@ -33,7 +37,7 @@
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.9rem, 5vw, 2.5rem);
         }
 
         .subheading {
@@ -67,6 +71,15 @@
         /* ======== SECTION PADDING ======== */
         section {
             padding: 5rem 0;
+        }
+
+        @media (max-width: 767px) {
+            section {
+                padding: 3.5rem 0;
+            }
+            .subheading {
+                margin-bottom: 2rem;
+            }
         }
 
         /* ======== HEADER & NAVIGATION ======== */
@@ -107,7 +120,7 @@
             background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
             position: relative;
             color: #fff;
-            padding: 0; /* Remove section padding */
+            padding: 76px 0 0; /* room for the fixed navbar */
         }
         
         /* Dark overlay for readability */
@@ -130,7 +143,7 @@
         
         #hero h1 {
             color: #fff;
-            font-size: 3.5rem;
+            font-size: clamp(2.25rem, 7vw, 3.5rem);
         }
 
         #hero p {
@@ -218,7 +231,7 @@
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
                         <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                            <a class="btn cta-button" href="https://calendly.com" target="_blank">Book an Appointment</a>
+                            <a class="btn cta-button" href="#contact">Book an Appointment</a>
                         </li>
                     </ul>
                 </div>
@@ -248,9 +261,9 @@
                     </div>
                 </div>
                 
-                <div class="row align-items-center g-5">
+                <div class="row align-items-center g-4 g-lg-5">
                     <div class="col-lg-6">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="A modern sustainable house" class="img-fluid rounded shadow">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop" alt="A modern sustainable house" class="img-fluid rounded shadow">
                     </div>
                     <div class="col-lg-6">
                         <h3>Our Story</h3>
@@ -273,7 +286,7 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card p-4 text-center">
+                        <div class="card p-4 text-center w-100">
                             <div class="card-body">
                                 <h4 class="card-title">Sustainable Architectural Design</h4>
                                 <p class="card-text">From initial sketches to full 3D renders, our team designs beautiful, functional spaces that harmonize with their surroundings.</p>
@@ -281,7 +294,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card p-4 text-center">
+                        <div class="card p-4 text-center w-100">
                             <div class="card-body">
                                 <h4 class="card-title">Custom Eco-Builds</h4>
                                 <p class="card-text">We manage the entire construction process, using sustainable materials and practices to bring your green home to life.</p>
@@ -289,7 +302,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-flex align-items-stretch">
-                        <div class="card p-4 text-center">
+                        <div class="card p-4 text-center w-100">
                             <div class="card-body">
                                 <h4 class="card-title">Net-Zero Renovations</h4>
                                 <p class="card-text">Transform your existing property into an energy-efficient marvel. We specialize in retrofitting homes with the latest green technology.</p>
@@ -311,8 +324,8 @@
                 
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Forest Retreat">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=800&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Forest Retreat">
                             <div class="card-body">
                                 <h4 class="card-title">The Forest Retreat</h4>
                                 <p class="card-text">A passive-solar home built with reclaimed timber, nestled in the woods.</p>
@@ -320,8 +333,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=2065&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Urban Eco-Loft">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?q=80&w=800&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Urban Eco-Loft">
                             <div class="card-body">
                                 <h4 class="card-title">Urban Eco-Loft</h4>
                                 <p class="card-text">A multi-unit development featuring a green roof and greywater recycling system.</p>
@@ -329,8 +342,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Coastal Modern">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=800&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Coastal Modern">
                             <div class="card-body">
                                 <h4 class="card-title">The Coastal Modern</h4>
                                 <p class="card-text">Designed to maximize natural light and ventilation, minimizing A/C usage.</p>
@@ -338,8 +351,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Net-Zero Suburban">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=800&auto=format&fit=crop" class="card-img-top portfolio-img" alt="Net-Zero Suburban">
                             <div class="card-body">
                                 <h4 class="card-title">Net-Zero Suburban</h4>
                                 <p class="card-text">A family home renovation that now produces more energy than it consumes.</p>
@@ -347,8 +360,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=2070&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Hillside Passive">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=800&auto=format&fit=crop" class="card-img-top portfolio-img" alt="The Hillside Passive">
                             <div class="card-body">
                                 <h4 class="card-title">The Hillside Passive</h4>
                                 <p class="card-text">Built into the landscape to leverage geothermal heating and cooling.</p>
@@ -356,8 +369,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                        <div class="card">
-                            <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top portfolio-img" alt="The Minimalist Cabin">
+                        <div class="card w-100">
+                            <img loading="lazy" src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top portfolio-img" alt="The Minimalist Cabin">
                             <div class="card-body">
                                 <h4 class="card-title">The Minimalist Cabin</h4>
                                 <p class="card-text">A small-footprint home built entirely from locally-sourced, non-toxic materials.</p>
@@ -377,7 +390,7 @@
                     </div>
                 </div>
                 
-                <div class="row g-5">
+                <div class="row g-4 g-lg-5">
                     <div class="col-lg-6">
                         <h3>Send Us an Inquiry</h3>
                         <form action="#" method="POST">
@@ -408,8 +421,8 @@
                     <div class="col-lg-6">
                         <h3>Our Office</h3>
                         <p class="fs-5">2 Ermou, Athens, 105 63, Greece</p>
-                        <p class="fs-5"><strong>Email:</strong> info@datamaster.com</p>
-                        <p class="fs-5 mb-4"><strong>Phone:</strong> +30 210 331 3034</p>
+                        <p class="fs-5"><strong>Email:</strong> info@greenhouses.gr</p>
+                        <p class="fs-5 mb-4"><strong>Phone:</strong> +30 210 000 0000</p>
                         
                         <div class="map-container">
                             <iframe 
@@ -428,7 +441,7 @@
         </section>
     </main>
 
-    <footer class="py-4 mt-5">
+    <footer class="py-4">
         <div class="container text-center">
             <p class="mb-0">© 2025 Green Houses. All rights reserved. | Sustainable Architecture & Development</p>
         </div>

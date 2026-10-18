@@ -20,12 +20,16 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; /* keep section titles visible below the sticky header */
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             background-color: #fff;
             color: var(--grey-color);
-            scroll-behavior: smooth; /* For smooth navigation */
         }
 
         img {
@@ -85,6 +89,7 @@
             border-radius: 5px;
             font-size: 1.1rem;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
         }
 
         .cta-button:hover {
@@ -118,21 +123,27 @@
         #main-header nav ul {
             list-style: none;
             display: flex;
+            align-items: center;
         }
 
         #main-header nav ul li {
             margin-left: 1.5rem;
         }
 
-        #main-header nav ul li a {
+        #main-header nav ul li a:not(.cta-button) {
             text-decoration: none;
             color: var(--grey-color);
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        #main-header nav ul li a:hover {
+        #main-header nav ul li a:not(.cta-button):hover {
             color: var(--primary-color);
+        }
+
+        #main-header .cta-button {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
         }
 
         /* --- Hero Section --- */
@@ -145,7 +156,7 @@
             text-align: center;
             color: #fff;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://images.pexels.com/photos/3998419/pexels-photo-3998419.jpeg') 
+                        url('https://images.pexels.com/photos/3998419/pexels-photo-3998419.jpeg?auto=compress&cs=tinysrgb&w=1920') 
                         no-repeat center center/cover;
             padding: 0 1rem;
         }
@@ -171,6 +182,9 @@
         }
 
         #about .about-content img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
@@ -190,10 +204,15 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
+        .service-item p {
+            margin-bottom: 0;
+        }
+
         .service-item .service-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            gap: 1rem;
             border-bottom: 2px dotted var(--primary-color);
             padding-bottom: 0.5rem;
             margin-bottom: 0.5rem;
@@ -205,6 +224,7 @@
         }
 
         .service-item .price {
+            white-space: nowrap;
             font-size: 1.2rem;
             font-weight: bold;
             color: var(--primary-color);
@@ -256,6 +276,13 @@
             transform: translateY(-5px);
         }
 
+        .team-card img {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: center top;
+        }
+
         .team-card .team-info {
             padding: 1.5rem;
         }
@@ -304,6 +331,10 @@
             text-align: center;
         }
 
+        #main-footer p {
+            margin-bottom: 0;
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
             h2 {
@@ -318,20 +349,36 @@
                 font-size: 1.2rem;
             }
 
-            #main-header .container {
-                flex-direction: column;
-            }
-
             #main-header .logo {
-                margin-bottom: 0.5rem;
+                font-size: 1.4rem;
             }
 
-            #main-header nav ul {
-                padding: 0;
+            /* phones: keep logo + Book button on one tidy row */
+            #main-header nav ul li:not(:last-child) {
+                display: none;
             }
 
             #main-header nav ul li {
-                margin: 0 0.5rem;
+                margin-left: 0;
+            }
+
+            #main-header .cta-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            #hero {
+                height: auto;
+                min-height: 75vh;
+                padding: 4rem 1.25rem;
+            }
+
+            .section-padding {
+                padding: 3.5rem 0;
+            }
+
+            .container {
+                padding: 0 1.25rem;
             }
 
             #about .about-content {
@@ -378,7 +425,7 @@
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. We started Fast Scissors in 2010 with one goal: to bring back the art of classic barbering in a modern, welcoming space.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg" alt="Interior of Fast Scissors barber shop">
+                        <img src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Interior of Fast Scissors barber shop">
                     </div>
                 </div>
             </div>
@@ -439,19 +486,19 @@
                 <h2 class="text-center">Products We Trust</h2>
                 <div class="partners-grid">
                     <div class="partner-logo">
-                        <img src="https://via.placeholder.com/150x60?text=Brand+Logo+One" alt="Partner Brand 1">
+                        <img src="https://placehold.co/150x60/eeeeee/555555?text=Brand+Logo+One" alt="Partner Brand 1">
                     </div>
                     <div class="partner-logo">
-                        <img src="https://via.placeholder.com/150x60?text=Beauty+Brand" alt="Partner Brand 2">
+                        <img src="https://placehold.co/150x60/eeeeee/555555?text=Beauty+Brand" alt="Partner Brand 2">
                     </div>
                     <div class="partner-logo">
-                        <img src="https://via.placeholder.com/150x60?text=Brand+Logo+Three" alt="Partner Brand 3">
+                        <img src="https://placehold.co/150x60/eeeeee/555555?text=Brand+Logo+Three" alt="Partner Brand 3">
                     </div>
                     <div class="partner-logo">
-                        <img src="https://via.placeholder.com/150x60?text=Grooming+Co." alt="Partner Brand 4">
+                        <img src="https://placehold.co/150x60/eeeeee/555555?text=Grooming+Co." alt="Partner Brand 4">
                     </div>
                     <div class="partner-logo">
-                        <img src="https://via.placeholder.com/150x60?text=Style+Brand" alt="Partner Brand 5">
+                        <img src="https://placehold.co/150x60/eeeeee/555555?text=Style+Brand" alt="Partner Brand 5">
                     </div>
                 </div>
             </div>
@@ -462,7 +509,7 @@
                 <h2>Meet The Barbers</h2>
                 <div class="team-grid">
                     <div class="team-card">
-                        <img src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg" alt="Barber 1">
+                        <img loading="lazy" src="https://images.pexels.com/photos/3764119/pexels-photo-3764119.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Barber 1">
                         <div class="team-info">
                             <h3>Charles 'Chuck' Davis</h3>
                             <p class="role">Master Barber / Founder</p>
@@ -470,7 +517,7 @@
                         </div>
                     </div>
                     <div class="team-card">
-                        <img src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg" alt="Barber 2">
+                        <img loading="lazy" src="https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Barber 2">
                         <div class="team-info">
                             <h3>Maria Rodriguez</h3>
                             <p class="role">Senior Barber / Stylist</p>
@@ -478,9 +525,9 @@
                         </div>
                     </div>
                     <div class="team-card">
-                        <img src="https://images.pexels.com/photos/5490235/pexels-photo-5490235.jpeg" alt="Barber 3">
+                        <img loading="lazy" src="https://images.pexels.com/photos/5490235/pexels-photo-5490235.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Barber 3">
                         <div class="team-info">
-<h3>Sam "The Kid" Johnson</h3>
+                            <h3>Sam "The Kid" Johnson</h3>
                             <p class="role">Barber</p>
                             <p>The newest member of our team, Sam is a rising star known for his meticulous beard work and sharp lineups.</p>
                         </div>
