@@ -1,446 +1,243 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row =>
+                    row.some(cell => cell !== '' && cell !== null && cell !== undefined)
+                );
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Templates | Data Master</title>
-    <meta name="description" content="Ready-made, responsive website templates for small and mid-sized businesses. Browse the live demos and Data Master adapts your choice to your brand and content.">
-    <meta name="theme-color" content="#121110">
-    <meta property="og:title" content="Website Templates | Data Master">
-    <meta property="og:description" content="Browse live demos of ready-made business websites. Pick one, and we adapt it to your brand.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://datamaster-gr.github.io/templates/">
-    <link rel="canonical" href="https://datamaster-gr.github.io/templates/">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 30'%3E%3Cpath d='M6 20h4v7H6zM12 16h4v11h-4zM18 12h4v15h-4z' fill='%23121110'/%3E%3Cpath d='M4 12.5l6 5.5L23 5' fill='none' stroke='%233F6B4E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18.5 4.2L24.6 3.4 23.8 9.5z' fill='%233F6B4E'/%3E%3C/svg%3E">
+    <title>Trading Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Data Master — Color Refresh 2026 */
-        :root {
-            color-scheme: light;
-            --ink-900: #121110;
-            --ink-700: #2A2724;
-            --ink-600: #3E3A35;
-            --ink-200: #D2CBC2;
-            --ink-100: #ECE7E1;
-            --ink-50:  #F7F4F0;
-            --terra-700: #A8452A;
-            --terra-600: #C0522F;
-            --terra-100: #F9E3DA;
-            --sand-200: #E7DCD0;
-            --sand-100: #F2EBE3;
-            --sage-700: #3F6B4E;
-            --sage-100: #E4EEE6;
-            --white: #FFFFFF;
-
-            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --radius: 10px;
-            --wrap: 1080px;
-        }
-
-        *, *::before, *::after { box-sizing: border-box; }
-
         body {
-            margin: 0;
-            font-family: var(--font);
-            font-size: 17px;
-            line-height: 1.6;
-            color: var(--ink-900);
-            background: var(--ink-50);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8f9fa;
+            padding-top: 56px; /* Offset for fixed navbar height */
         }
-
-        a { color: inherit; }
-        a:focus-visible, .btn:focus-visible {
-            outline: 3px solid var(--terra-600);
-            outline-offset: 3px;
-        }
-
-        .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
-
-        /* --- Header --- */
-        .site-header {
-            background: var(--white);
-            border-bottom: 1px solid var(--ink-100);
-        }
-        .site-header .wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            min-height: 68px;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .brand svg { width: 30px; height: 32px; flex: none; }
-        .brand-name {
-            display: block;
-            font-size: 19px;
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-        }
-        .brand-name b { font-weight: 700; }
-        .brand-name span { font-weight: 500; }
-        .brand-tag {
-            display: block;
-            font-size: 11.5px;
-            color: var(--sage-700);
-            font-weight: 500;
-        }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 11px 18px;
+        .dashboard-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
             border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 1.2;
-            text-decoration: none;
-            border: 1.5px solid transparent;
-            transition: background-color .15s ease, border-color .15s ease, color .15s ease;
-            white-space: nowrap;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .btn-primary { background: var(--ink-900); color: var(--ink-50); }
-        .btn-primary:hover { background: var(--ink-700); }
-        .btn-accent { background: var(--terra-600); color: var(--white); }
-        .btn-accent:hover { background: var(--terra-700); }
-        .btn-ghost { background: var(--white); color: var(--ink-900); border-color: var(--ink-200); }
-        .btn-ghost:hover { border-color: var(--ink-900); }
-
-        /* --- Hero --- */
-        .hero { padding: 64px 0 40px; }
-        .eyebrow {
-            margin: 0 0 12px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--terra-600);
+        .output-card {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
         }
-        h1 {
-            margin: 0;
-            max-width: 760px;
-            font-size: clamp(32px, 5vw, 48px);
-            line-height: 1.12;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-        .lead {
-            margin: 18px 0 0;
-            max-width: 640px;
-            font-size: 18.5px;
-            color: var(--ink-600);
-        }
-        .steps {
+        .button-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px 28px;
-            margin: 28px 0 0;
-            padding: 0;
-            list-style: none;
-            font-size: 15px;
-            color: var(--ink-600);
+            justify-content: center;
+            gap: 1rem;
         }
-        .steps li { display: flex; align-items: center; gap: 10px; }
-        .steps .n {
-            display: inline-grid;
-            place-items: center;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--sage-100);
-            color: var(--sage-700);
-            font-weight: 700;
-            font-size: 13px;
-            flex: none;
+        /* Navbar custom styles */
+        .navbar-custom {
+            background-color: #212529; /* Darker gray */
         }
-
-        /* --- Template grid --- */
-        .templates { padding: 16px 0 64px; }
-        h2 {
-            margin: 0 0 20px;
-            font-size: 24px;
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff; /* White font */
         }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
+        .navbar-custom .navbar-brand:hover,
+        .navbar-custom .nav-link:hover {
+            color: #e9ecef; /* Slightly lighter on hover */
         }
-        .card {
-            display: flex;
-            flex-direction: column;
-            background: var(--white);
-            border: 1px solid var(--ink-100);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: box-shadow .2s ease, border-color .2s ease;
+        /* Dropdown menu styles */
+        .navbar-custom .dropdown-menu {
+            background-color: #212529; /* Same darker gray as navbar */
         }
-        .card:hover {
-            border-color: var(--ink-200);
-            box-shadow: 0 10px 28px rgba(18, 17, 16, 0.07);
+        .navbar-custom .dropdown-item {
+            color: #ffffff; /* White font */
         }
-        .card-band {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 112px;
-            padding: 16px 20px;
-            background: var(--sand-100);
-            border-bottom: 1px solid var(--sand-200);
+        .navbar-custom .dropdown-item:hover {
+            color: #e9ecef; /* Slightly lighter on hover */
+            background-color: #343a40; /* Slightly lighter background on hover for contrast */
         }
-        .card-band .icon {
-            width: 44px;
-            height: 44px;
-            color: var(--ink-900);
+        /* Dropdown on hover */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
         }
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 999px;
-            background: var(--white);
-            border: 1px solid var(--sand-200);
-            color: var(--ink-600);
-            font-size: 12.5px;
-            font-weight: 600;
-        }
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 20px;
-        }
-        .card h3 {
-            margin: 0;
-            font-size: 19px;
-            line-height: 1.3;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        .card p {
-            margin: 8px 0 0;
-            font-size: 15.5px;
-            color: var(--ink-600);
-        }
-        .features {
-            margin: 14px 0 0;
-            padding: 0;
-            list-style: none;
-            font-size: 14.5px;
-            color: var(--ink-600);
-        }
-        .features li {
-            position: relative;
-            padding-left: 22px;
-            margin-top: 4px;
-        }
-        .features li::before {
-            content: "";
-            position: absolute;
-            left: 2px;
-            top: 7px;
-            width: 10px;
-            height: 6px;
-            border-left: 2px solid var(--sage-700);
-            border-bottom: 2px solid var(--sage-700);
-            transform: rotate(-45deg);
-        }
-        .card-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-            padding-top: 20px;
-        }
-        .card-actions .btn { flex: 1 1 auto; }
-
-        /* --- CTA band --- */
-        .cta {
-            background: var(--ink-900);
-            color: var(--ink-50);
-        }
-        .cta .wrap {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding-top: 48px;
-            padding-bottom: 48px;
-        }
-        .cta h2 { margin: 0; color: var(--ink-50); }
-        .cta p { margin: 8px 0 0; color: var(--ink-200); max-width: 560px; }
-        .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-        .cta .btn-ghost {
-            background: transparent;
-            color: var(--ink-50);
-            border-color: var(--ink-600);
-        }
-        .cta .btn-ghost:hover { border-color: var(--ink-50); }
-
-        /* --- Footer --- */
-        footer {
-            padding: 24px 0;
-            font-size: 14px;
-            color: var(--ink-600);
-            background: var(--ink-50);
-        }
-        footer .wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 8px;
-        }
-        footer a { color: var(--ink-900); font-weight: 600; text-decoration: none; }
-        footer a:hover { color: var(--terra-600); }
-
-        @media (max-width: 560px) {
-            body { font-size: 16px; }
-            .hero { padding: 40px 0 28px; }
-            .lead { font-size: 17px; }
-            .site-header .btn { padding: 9px 14px; font-size: 14px; }
-            .brand-tag { display: none; }
-            .grid { grid-template-columns: 1fr; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * { transition: none !important; }
+        .dropdown-menu {
+            margin-top: 0; /* Align dropdown with navbar */
         }
     </style>
 </head>
 <body>
-
-    <header class="site-header">
-        <div class="wrap">
-            <a class="brand" href="https://www.datamaster.gr" aria-label="Data Master home">
-                <svg viewBox="0 0 28 30" aria-hidden="true">
-                    <path d="M6 20h4v7H6zM12 16h4v11h-4zM18 12h4v15h-4z" fill="#121110"/>
-                    <path d="M4 12.5l6 5.5L23 5" fill="none" stroke="#3F6B4E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M18.5 4.2L24.6 3.4 23.8 9.5z" fill="#3F6B4E"/>
-                </svg>
-                <span>
-                    <span class="brand-name"><b>Data</b> <span>Master</span></span>
-                    <span class="brand-tag">From data to decisions.</span>
-                </span>
-            </a>
-            <a class="btn btn-primary" href="mailto:info@datamaster.gr?subject=Website%20template%20enquiry">Contact us</a>
-        </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="wrap">
-                <p class="eyebrow">Website templates</p>
-                <h1>A professional website for your business, built on a proven design</h1>
-                <p class="lead">Browse the live demos below. Pick the one closest to your business, and we adapt it to your brand, services and content, then launch it on your own domain.</p>
-                <ol class="steps" aria-label="How it works">
-                    <li><span class="n">1</span>Browse the demos</li>
-                    <li><span class="n">2</span>Send us your logo, texts and photos</li>
-                    <li><span class="n">3</span>We customise and launch it</li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="templates" aria-labelledby="templates-title">
-            <div class="wrap">
-                <h2 id="templates-title">Choose a starting point</h2>
-
-                <ul class="grid">
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
-                            <span class="tag">Barbers &amp; salons</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Modern Barber</h3>
-                            <p>A clean, single-page website that turns visitors into booked appointments.</p>
-                            <ul class="features">
-                                <li>Booking section</li>
-                                <li>Services &amp; price list</li>
-                                <li>Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="websites/barber/">View live demo</a>
-                                <a class="btn btn-ghost" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Modern%20Barber%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-                            <span class="tag">Couriers &amp; logistics</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Minimalist Courier Services</h3>
-                            <p>A simple, fast-loading website built around one goal: getting quote requests.</p>
-                            <ul class="features">
-                                <li>Contact / quote request form</li>
-                                <li>Clear service overview</li>
-                                <li>Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="websites/courier/">View live demo</a>
-                                <a class="btn btn-ghost" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Courier%20Services%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><path d="M12 5c2-2 5-2 6-1-1 1-3 2-6 1z"/></svg>
-                            <span class="tag">Architects &amp; engineers</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Sustainable Architecture &amp; Development</h3>
-                            <p>A modern portfolio website that puts your completed projects front and centre.</p>
-                            <ul class="features">
-                                <li>Project showcase</li>
-                                <li>Google Maps &amp; contact form</li>
-                                <li>Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" href="websites/architect/">View live demo</a>
-                                <a class="btn btn-ghost" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Architecture%20template">I want this</a>
-                            </div>
-                        </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Trading Platform</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="tradeSimulation" role="button" aria-expanded="false">
+                            Trade Simulation
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="tradeSimulation">
+                            <li><a class="dropdown-item active" href="index.html">Buy & Sell</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section class="cta" aria-labelledby="cta-title">
-            <div class="wrap">
-                <div>
-                    <h2 id="cta-title">Not sure which one fits?</h2>
-                    <p>Tell us about your business and we'll recommend the best starting point, or design something tailored to you.</p>
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <h1 class="text-center mb-4">Buy Low & Sell High Simulation</h1>
+        <div class="row">
+            <!-- Buy Section -->
+            <div class="col-md-6">
+                <h3>Buy Order</h3>
+                <div class="mb-3">
+                    <label for="buyPrice" class="form-label">Buying Price ($)</label>
+                    <input type="number" class="form-control" id="buyPrice" step="0.01" min="0" placeholder="Enter buying price">
                 </div>
-                <div class="cta-actions">
-                    <a class="btn btn-accent" href="mailto:info@datamaster.gr?subject=Help%20me%20choose%20a%20website%20template">Ask us</a>
-                    <a class="btn btn-ghost" href="https://www.datamaster.gr">Visit datamaster.gr</a>
+                <div class="mb-3">
+                    <label for="buyQuantity" class="form-label">Buying Quantity (Coins/Tokens)</label>
+                    <input type="number" class="form-control" id="buyQuantity" step="0.0001" min="0" placeholder="Enter quantity">
+                </div>
+                <div class="mb-3">
+                    <label for="buyFee" class="form-label">Fee (%)</label>
+                    <input type="number" class="form-control" id="buyFee" step="0.01" min="0" value="0.1" placeholder="Enter fee percentage">
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="wrap">
-            <span>&copy; 2026 Data Master</span>
-            <span>Business names, texts and images in the demos are sample content. · <a href="https://www.datamaster.gr">datamaster.gr</a></span>
+            <!-- Sell Section -->
+            <div class="col-md-6">
+                <h3>Sell Order</h3>
+                <div class="mb-3">
+                    <label for="sellPrice" class="form-label">Selling Price ($)</label>
+                    <input type="number" class="form-control" id="sellPrice" step="0.01" min="0" placeholder="Enter selling price">
+                </div>
+                <div class="mb-3">
+                    <label for="sellQuantity" class="form-label">Selling Quantity (Coins/Tokens)</label>
+                    <input type="number" class="form-control" id="sellQuantity" step="0.0001" min="0" readonly placeholder="Auto-calculated">
+                </div>
+                <div class="mb-3">
+                    <label for="sellFee" class="form-label">Fee (%)</label>
+                    <input type="number" class="form-control" id="sellFee" step="0.01" min="0" value="0.1" placeholder="Enter fee percentage">
+                </div>
+            </div>
         </div>
-    </footer>
+        <div class="button-group mt-4">
+            <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+            <button class="btn btn-primary" onclick="calculateTrade()">Calculate Trade</button>
+        </div>
+        <!-- Output Section -->
+        <div class="output-card" id="outputSection" style="display: none;">
+            <h4>Trade Summary</h4>
+            <p><strong>Bought Amount:</strong> <span id="boughtAmount"></span></p>
+            <p><strong>Buy Fees (in tokens):</strong> <span id="buyFees"></span></p>
+            <p><strong>Sold Amount:</strong> <span id="soldAmount"></span></p>
+            <p><strong>Sell Fees (in $):</strong> <span id="sellFees"></span></p>
+            <p><strong>Break-even Price:</strong> <span id="breakEvenPrice"></span> <small>(Selling price for zero profit/loss, including fees)</small></p>
+            <p><strong>Profit/Loss:</strong> <span id="profit"></span></p>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function calculateTrade() {
+            // Get input values
+            const buyPrice = parseFloat(document.getElementById('buyPrice').value) || 0;
+            const buyQuantity = parseFloat(document.getElementById('buyQuantity').value) || 0;
+            const buyFee = parseFloat(document.getElementById('buyFee').value) || 0;
+            const sellPrice = parseFloat(document.getElementById('sellPrice').value) || 0;
+            const sellFee = parseFloat(document.getElementById('sellFee').value) || 0;
+
+            // Validate inputs
+            if (buyPrice <= 0 || buyQuantity <= 0 || sellPrice <= 0) {
+                alert('Please enter valid positive values for prices and buy quantity.');
+                return;
+            }
+
+            // Calculate values
+            const boughtAmount = buyPrice * buyQuantity; // Total cost in $
+            const buyFeesInTokens = buyQuantity * (buyFee / 100); // Fees in tokens
+            const sellQuantity = buyQuantity - buyFeesInTokens; // Selling quantity after fees
+            const soldAmount = sellPrice * sellQuantity; // Total received in $
+            const sellFees = (soldAmount * sellFee) / 100; // Sell fees in $
+            // Break-even price: buyPrice / [(1 - buyFee/100) * (1 - sellFee/100)]
+            const breakEvenPrice = buyPrice / ((1 - buyFee / 100) * (1 - sellFee / 100));
+            const profit = soldAmount - boughtAmount - sellFees; // Profit in $
+
+            // Update sell quantity input
+            document.getElementById('sellQuantity').value = sellQuantity.toFixed(4);
+
+            // Display results
+            document.getElementById('boughtAmount').textContent = `$${boughtAmount.toFixed(2)}`;
+            document.getElementById('buyFees').textContent = `${buyFeesInTokens.toFixed(4)} tokens`;
+            document.getElementById('soldAmount').textContent = `$${soldAmount.toFixed(2)}`;
+            document.getElementById('sellFees').textContent = `$${sellFees.toFixed(2)}`;
+            document.getElementById('breakEvenPrice').textContent = `$${breakEvenPrice.toFixed(8)}`;
+            document.getElementById('profit').textContent = `$${profit.toFixed(2)} (${profit >= 0 ? 'Profit' : 'Loss'})`;
+            document.getElementById('profit').style.color = profit >= 0 ? 'green' : 'red';
+
+            // Show output section
+            document.getElementById('outputSection').style.display = 'block';
+        }
+
+        function resetForm() {
+            // Clear input fields
+            document.getElementById('buyPrice').value = '';
+            document.getElementById('buyQuantity').value = '';
+            document.getElementById('buyFee').value = '0.1';
+            document.getElementById('sellPrice').value = '';
+            document.getElementById('sellQuantity').value = '';
+            document.getElementById('sellFee').value = '0.1';
+
+            // Clear output fields
+            document.getElementById('boughtAmount').textContent = '';
+            document.getElementById('buyFees').textContent = '';
+            document.getElementById('soldAmount').textContent = '';
+            document.getElementById('sellFees').textContent = '';
+            document.getElementById('breakEvenPrice').textContent = '';
+            document.getElementById('profit').textContent = '';
+            document.getElementById('profit').style.color = '';
+
+            // Hide output section
+            document.getElementById('outputSection').style.display = 'none';
+        }
+
+        // Add Enter key press event listener
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                calculateTrade();
+            }
+        });
+    </script>
 </body>
 </html>
