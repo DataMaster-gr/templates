@@ -22,7 +22,7 @@
 
         /* ======== GLOBAL & TYPOGRAPHY STYLES ======== */
         html {
-            scroll-padding-top: 90px; /* keep section titles visible below the fixed navbar */
+            scroll-padding-top: 90px; /* keep section titles visible below the sticky navbar */
         }
 
         body {
@@ -120,7 +120,7 @@
             background: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
             position: relative;
             color: #fff;
-            padding: 76px 0 0; /* room for the fixed navbar */
+            padding: 0; /* navbar is sticky, so no offset needed */
         }
         
         /* Dark overlay for readability */
@@ -207,8 +207,31 @@
 </head>
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar">
 
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNavbar">
+    <!-- Data Master demo ribbon (follows the visitor's EL/EN choice from the template index) -->
+    <style>
+        .dm-ribbon { margin: 0; padding: 7px 16px; background: #121110; color: #D2CBC2; font: 400 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; text-align: center; letter-spacing: 0; }
+        .dm-ribbon a { color: #fff; font-weight: 600; margin-left: 6px; text-decoration: underline; }
+        .dm-ribbon a:hover { color: #fff; opacity: .85; }
+    </style>
+    <div class="dm-ribbon" id="dm-ribbon"><span id="dm-ribbon-text">Demo πρότυπο από τη Data Master · Όλα τα στοιχεία είναι ενδεικτικά</span> <a id="dm-ribbon-link" href="../../">Όλα τα πρότυπα</a></div>
+    <script>
+    (function () {
+        var T = {
+            el: ["Demo πρότυπο από τη Data Master · Όλα τα στοιχεία είναι ενδεικτικά", "Όλα τα πρότυπα"],
+            en: ["Demo template by Data Master · All details are sample content", "All templates"]
+        };
+        var lang = new URLSearchParams(location.search).get("lang");
+        if (!T[lang]) { try { lang = localStorage.getItem("dm-lang"); } catch (e) { lang = null; } }
+        if (!T[lang]) { lang = (navigator.language || "").toLowerCase().indexOf("en") === 0 ? "en" : "el"; }
+        document.getElementById("dm-ribbon-text").textContent = T[lang][0];
+        var a = document.getElementById("dm-ribbon-link");
+        a.textContent = T[lang][1];
+        a.lang = lang;
+    })();
+    </script>
+
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNavbar">
             <div class="container">
                 <a class="navbar-brand" href="#">Green Houses</a>
                 
