@@ -1,0 +1,155 @@
+{
+  "_comment": "Per-client variables for privacy.html (compliance pack §9). Edit here, then run: python3 legal/build.py. Text values can be a plain string or {\"el\": ..., \"en\": ...}. All values below are demo placeholders.",
+
+  "defaults": {
+    "policy_last_updated": "2026-10-29",
+    "form_retention_months": 12,
+    "booking_retention_months": 24,
+    "analytics_retention_months": 2,
+    "consent_cookie": "cc_cookie",
+    "consent_cookie_months": 6,
+    "site_languages": ["el", "en"],
+    "uses_newsletter": false,
+    "demo": true
+  },
+
+  "sites": {
+    "barber": {
+      "business_name": { "el": "Γιώργος Ιωάννου", "en": "Giorgos Ioannou" },
+      "trading_title": "Fast Scissors",
+      "address": { "el": "Οδός 00, 000 00 Αθήνα", "en": "00 Street, 000 00 Athens, Greece" },
+      "afm": "000000000",
+      "gemi_number": "",
+      "email": "info@fastscissors.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": null,
+      "sector": null,
+      "uses_contact_form": false,
+      "uses_booking": false,
+      "uses_ga4": false,
+      "uses_maps": false,
+      "theme": {
+        "accent": "#b98d57", "accent_ink": "#7a5a31", "dark": "#1a1a1a", "on_dark": "#e8e8e8",
+        "ink": "#222222", "muted": "#5b5b5b", "bg": "#ffffff", "soft": "#f4f4f4", "line": "#e3e3e3",
+        "head_font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "body_font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif",
+        "radius": "6px"
+      }
+    },
+
+    "courier": {
+      "business_name": { "el": "CoJim Couriers Μονοπρόσωπη Ι.Κ.Ε.", "en": "CoJim Couriers Single-Member P.C." },
+      "trading_title": "CoJim Couriers",
+      "address": { "el": "Οδός 00, 000 00 Αθήνα", "en": "00 Street, 000 00 Athens, Greece" },
+      "afm": "000000000",
+      "gemi_number": "000000000000",
+      "email": "info@cojim.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": { "body": { "el": "Μητρώο Παρόχων Ταχυδρομικών Υπηρεσιών της ΕΕΤΤ", "en": "EETT Register of Postal Service Providers" }, "licence": "00-000" },
+      "sector": "courier",
+      "uses_contact_form": true,
+      "uses_booking": false,
+      "uses_ga4": false,
+      "uses_maps": false,
+      "theme": {
+        "accent": "#2563eb", "accent_ink": "#1d4ed8", "dark": "#1f2937", "on_dark": "#d1d5db",
+        "ink": "#111827", "muted": "#4b5563", "bg": "#ffffff", "soft": "#f9fafb", "line": "#e5e7eb",
+        "head_font": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "body_font": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "8px"
+      }
+    },
+
+    "architect": {
+      "business_name": { "el": "Green Houses Ι.Κ.Ε.", "en": "Green Houses P.C." },
+      "trading_title": "Green Houses",
+      "address": { "el": "Ερμού 2, 105 63 Αθήνα", "en": "2 Ermou St, 105 63 Athens, Greece" },
+      "afm": "000000000",
+      "gemi_number": "000000000000",
+      "email": "info@greenhouses.gr",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": { "body": { "el": "Τεχνικό Επιμελητήριο Ελλάδας (ΤΕΕ)", "en": "Technical Chamber of Greece (TEE)" }, "licence": "000000" },
+      "sector": "engineer",
+      "uses_contact_form": true,
+      "uses_booking": false,
+      "uses_ga4": false,
+      "uses_maps": true,
+      "theme": {
+        "accent": "#2a9d8f", "accent_ink": "#1f7a6f", "dark": "#264653", "on_dark": "#d6e4e2",
+        "ink": "#1f2a30", "muted": "#51616a", "bg": "#ffffff", "soft": "#f8f9fa", "line": "#dfe6e8",
+        "head_font": "\"Montserrat\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "body_font": "\"Montserrat\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "8px"
+      }
+    },
+
+    "dental": {
+      "business_name": { "el": "Ελένη Μάρκου, Οδοντίατρος", "en": "Eleni Markou, Dental Surgeon" },
+      "trading_title": "Lumen Dental",
+      "address": { "el": "Λεωφ. Κηφισίας 00, 151 24 Μαρούσι", "en": "00 Kifisias Ave, 151 24 Marousi, Greece" },
+      "afm": "000000000",
+      "gemi_number": "",
+      "email": "info@lumendental.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": { "body": { "el": "Οδοντιατρικός Σύλλογος Αττικής", "en": "Dental Association of Attica" }, "licence": "00000" },
+      "sector": "health",
+      "uses_contact_form": false,
+      "uses_booking": true,
+      "uses_ga4": true,
+      "uses_maps": true,
+      "theme": {
+        "accent": "#13646A", "accent_ink": "#0F4F54", "dark": "#0B3B3F", "on_dark": "#CFE0DE",
+        "ink": "#142322", "muted": "#4B5D5C", "bg": "#FFFFFF", "soft": "#F6FAF9", "line": "#DCE6E4",
+        "head_font": "\"Commissioner\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "body_font": "\"Commissioner\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "14px"
+      }
+    },
+
+    "accounting": {
+      "business_name": { "el": "Μαρία Παπαδάκη, Λογίστρια-Φοροτεχνικός Α' τάξης", "en": "Maria Papadaki, Class A Accountant & Tax Consultant" },
+      "trading_title": { "el": "Παπαδάκης & Συνεργάτες", "en": "Papadakis & Partners" },
+      "address": { "el": "Λεωφ. Πεντέλης 00, 152 34 Χαλάνδρι", "en": "00 Pentelis Ave, 152 34 Halandri, Greece" },
+      "afm": "000000000",
+      "gemi_number": "",
+      "email": "info@papadakis-accounting.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": { "body": { "el": "Οικονομικό Επιμελητήριο Ελλάδας (ΟΕΕ)", "en": "Economic Chamber of Greece (OEE)" }, "licence": "00000" },
+      "sector": "accounting",
+      "uses_contact_form": false,
+      "uses_booking": true,
+      "uses_ga4": true,
+      "uses_maps": true,
+      "theme": {
+        "accent": "#8A5F1A", "accent_ink": "#8A5F1A", "dark": "#14213D", "on_dark": "#C9D1E2",
+        "ink": "#1A1F2B", "muted": "#535B6A", "bg": "#FAF8F4", "soft": "#F3EEE5", "line": "#E4DED3",
+        "head_font": "\"Literata\", Georgia, \"Times New Roman\", serif",
+        "body_font": "\"Noto Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "12px"
+      }
+    },
+
+    "law": {
+      "business_name": { "el": "Νικολάου & Συνεργάτες Δικηγορική Εταιρεία", "en": "Nikolaou & Partners Law Firm" },
+      "trading_title": { "el": "Νικολάου & Συνεργάτες", "en": "Nikolaou & Partners" },
+      "address": { "el": "Ακαδημίας 00, 106 79 Αθήνα", "en": "00 Akadimias St, 106 79 Athens, Greece" },
+      "afm": "000000000",
+      "gemi_number": "",
+      "email": "info@nikolaou-law.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": { "body": { "el": "Δικηγορικός Σύλλογος Αθηνών (ΔΣΑ)", "en": "Athens Bar Association" }, "licence": "00000" },
+      "sector": "law",
+      "uses_contact_form": true,
+      "uses_booking": false,
+      "uses_ga4": true,
+      "uses_maps": true,
+      "theme": {
+        "accent": "#7B2D26", "accent_ink": "#5E211C", "dark": "#111013", "on_dark": "#BDB8C2",
+        "ink": "#1E1D21", "muted": "#5A5660", "bg": "#FFFFFF", "soft": "#F6F3EF", "line": "#E2DBD2",
+        "head_font": "\"EB Garamond\", Georgia, \"Times New Roman\", serif",
+        "body_font": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "10px"
+      }
+    }
+  }
+}

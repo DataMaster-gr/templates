@@ -20,6 +20,8 @@ Browse the live demos, pick the one closest to your business, and we adapt it to
 
 All business names, texts and images in the demos are sample content.
 
+Every template includes a bilingual **Privacy & Cookie Policy** page (`privacy.html`), generated from one shared text. See [`legal/`](legal/README.md).
+
 ## How it works
 
 1. **Browse** the live demos and choose a template.
@@ -33,6 +35,7 @@ Interested? Get in touch at **[datamaster.gr](https://www.datamaster.gr)**.
 ```
 .
 ├── index.html            # Template index (GitHub Pages landing page)
+├── legal/                # Shared privacy-policy text + per-site variables → privacy.html
 └── websites/
     ├── barber/           # Modern Barber template
     ├── courier/          # Minimalist Courier Services template

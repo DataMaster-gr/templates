@@ -202,6 +202,8 @@
             background-color: var(--secondary-color);
             color: #f4f4f4;
         }
+        footer a { color: inherit; }
+        .form-privacy { font-size: 0.875rem; color: #6c757d; margin: 0.75rem 0 0; }
 
     </style>
 </head>
@@ -438,6 +440,7 @@
                                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                            <p class="form-privacy">Your details are only used to reply to your message. See our <a href="privacy.html">Privacy Policy</a>.</p>
                         </form>
                     </div>
                     
@@ -467,6 +470,7 @@
     <footer class="py-4">
         <div class="container text-center">
             <p class="mb-0">© 2025 Green Houses. All rights reserved. | Sustainable Architecture & Development</p>
+            <p class="mb-0 mt-2 small"><a href="privacy.html">Privacy Policy</a> · <a href="privacy.html#cookies" data-cc="show-preferencesModal">Cookie settings</a></p>
         </div>
     </footer>
 
