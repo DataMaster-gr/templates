@@ -1,0 +1,8 @@
+# Data Master contact kit: only contact.php is reachable from the web
+<FilesMatch "\.(php|json|md)$">
+    Require all denied
+</FilesMatch>
+<Files "contact.php">
+    Require all granted
+</Files>
+RedirectMatch 404 /dm-contact/(lib|storage)/

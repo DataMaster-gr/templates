@@ -1,0 +1,6 @@
+# Per-site secrets and runtime files: never commit
+dm-contact-config.php
+**/dm-contact/config.php
+**/dm-contact/storage/
+dm-contact-storage/
+.DS_Store

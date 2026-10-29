@@ -451,7 +451,7 @@
             </div>
             <div class="contact">
                 <div class="form-card" id="formCard">
-                    <form id="leadForm" novalidate>
+                    <form id="leadForm" action="dm-contact/contact.php" method="post" data-dm-contact data-sent-target="#formCard" novalidate>
                         <div class="fields">
                             <div class="field full"><label for="f-name" data-i18n="fm.name">Ονοματεπώνυμο</label><input id="f-name" type="text" name="name" autocomplete="name" required></div>
                             <div class="field"><label for="f-phone" data-i18n="fm.phone">Τηλέφωνο</label><input id="f-phone" type="tel" name="phone" autocomplete="tel" required></div>
@@ -845,13 +845,8 @@
 
     document.querySelectorAll("[data-set-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set-lang")); }); });
 
-    // Demo form: validates, then shows a confirmation without sending anything.
-    var form = document.getElementById("leadForm");
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        document.getElementById("formCard").classList.add("sent");
-    });
+    // The contact form is handled by dm-contact/contact-form.js
+    // (sends real emails on the live site, demo only on GitHub Pages).
 
     var els = document.querySelectorAll(".reveal");
     if ("IntersectionObserver" in window) {
@@ -863,5 +858,6 @@
 })();
 </script>
 
+<script src="dm-contact/contact-form.js" defer></script>
 </body>
 </html>

@@ -139,14 +139,8 @@
                     <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Have a question or need a custom quote? We're here to help.</p>
                 </div>
                 <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
-                    <form action="https://api.web3forms.com/submit" method="POST">
-
-                        <!-- IMPORTANT: Add your access key from Web3Forms -->
-                        <input type="hidden" name="access_key" value="dea7ea4a-3e51-4258-9e57-c8dbff37fe5b">
-
+                    <form action="dm-contact/contact.php" method="post" data-dm-contact>
                         <div class="grid md:grid-cols-2 gap-6">
-                            <!-- Add a 'name' attribute to each input -->
-                            <input type="hidden" name="from_name" value="CoJim Courier">
                             <input type="text" name="name" placeholder="Your Name" class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         </div>
@@ -156,6 +150,10 @@
                         <div class="mt-6">
                             <textarea name="message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
                         </div>
+                        <label class="flex items-start gap-3 mt-6 text-sm text-gray-600 cursor-pointer">
+                            <input type="checkbox" name="consent" required class="mt-1 h-4 w-4 shrink-0 accent-blue-600">
+                            <span>I agree to be contacted about my request.</span>
+                        </label>
                         <div class="text-center mt-6">
                             <button type="submit" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-md hover:bg-blue-700 transition duration-300">Send Message</button>
                             <p class="mt-4 text-sm text-gray-500">Your details are only used to reply to your message. See our <a href="privacy.html" class="underline">Privacy Policy</a>.</p>
@@ -190,6 +188,7 @@
         });
     </script>
 
+<script src="dm-contact/contact-form.js" defer></script>
 </body>
 </html>
 

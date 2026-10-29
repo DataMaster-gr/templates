@@ -325,6 +325,87 @@
             background: var(--light-color);
         }
 
+        /* --- Contact Section --- */
+        #contact .intro {
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .contact-form {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-form .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form label.field {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="tel"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            display: block;
+            width: 100%;
+            margin-top: 0.35rem;
+            padding: 0.75rem;
+            font: inherit;
+            font-weight: 400;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 1px;
+            border-color: var(--primary-color);
+        }
+
+        .contact-form .check {
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-form .check input {
+            margin-top: 0.3rem;
+            accent-color: var(--primary-color);
+        }
+
+        .contact-form button.cta-button {
+            border: 0;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form .note {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0.75rem 0 0;
+            text-align: center;
+        }
+
+        .contact-form .note a {
+            color: inherit;
+        }
+
         /* --- Footer --- */
         #main-footer {
             padding: 2rem 0;
@@ -340,6 +421,8 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
+            .contact-form { padding: 1.25rem; }
+            .contact-form .row { grid-template-columns: 1fr; gap: 0; }
             h2 {
                 font-size: 2rem;
             }
@@ -430,6 +513,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#team">Our Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
                     <li><a href="#book" class="cta-button">Book Now</a></li>
                 </ul>
             </nav>
@@ -573,6 +657,35 @@
             </div>
         </section>
 
+        <section id="contact" class="section-padding bg-light">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p class="intro">A question about a service, a group booking or a gift voucher? Send us a message and we'll get back to you the same day.</p>
+                <form class="contact-form" action="dm-contact/contact.php" method="post" data-dm-contact>
+                    <div class="row">
+                        <label class="field" for="c-name">Name
+                            <input id="c-name" type="text" name="name" autocomplete="name" required>
+                        </label>
+                        <label class="field" for="c-phone">Phone
+                            <input id="c-phone" type="tel" name="phone" autocomplete="tel">
+                        </label>
+                    </div>
+                    <label class="field" for="c-email">Email
+                        <input id="c-email" type="email" name="email" autocomplete="email">
+                    </label>
+                    <label class="field" for="c-message">Message
+                        <textarea id="c-message" name="message" rows="4" required></textarea>
+                    </label>
+                    <label class="check">
+                        <input type="checkbox" name="consent" required>
+                        <span>I agree to be contacted about my request.</span>
+                    </label>
+                    <button type="submit" class="cta-button">Send Message</button>
+                    <p class="note">Your details are only used to reply to your message. See our <a href="privacy.html">Privacy Policy</a>.</p>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <footer id="main-footer" class="bg-dark">
@@ -582,5 +695,6 @@
             </div>
     </footer>
 
+<script src="dm-contact/contact-form.js" defer></script>
 </body>
 </html>

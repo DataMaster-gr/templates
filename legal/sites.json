@@ -24,7 +24,7 @@
       "phone": "+30 210 000 0000",
       "profession_regulator": null,
       "sector": null,
-      "uses_contact_form": false,
+      "uses_contact_form": true,
       "uses_booking": false,
       "uses_ga4": false,
       "uses_maps": false,
