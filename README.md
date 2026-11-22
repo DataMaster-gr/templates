@@ -1,9 +1,14 @@
-# Data Master — Website Templates
+# Data Master — Website Samples
 
-Ready-made, responsive website templates for small and mid-sized businesses, built by [Data Master](https://www.datamaster.gr).
-Browse the live demos, pick the one closest to your business, and we adapt it to your brand, content and needs.
+Live samples of websites and website building blocks for small and mid-sized businesses, built by [Data Master](https://www.datamaster.gr):
+ready-made templates, header styles and more to come. Browse them, pick what fits your business, and we adapt it to your brand, content and needs.
 
-### 🔗 Live demo: **[datamaster-gr.github.io/templates](https://datamaster-gr.github.io/templates/)**
+### 🔗 Live samples: **[datamaster-gr.github.io/templates](https://datamaster-gr.github.io/templates/)**
+
+| Collection | What it is | Live |
+|---|---|---|
+| **Ready-made websites** | 6 complete website templates (below) | [Browse →](https://datamaster-gr.github.io/templates/websites/) |
+| **Header styles** | 10 live header styles: classic, centered, call to action, sticky, transparent, gradient, dark, icons, search, mega menu | [See them →](https://datamaster-gr.github.io/templates/components/headers/) |
 
 ---
 
@@ -36,12 +41,17 @@ Interested? Get in touch at **[datamaster.gr](https://www.datamaster.gr)**.
 
 ```
 .
-├── index.html            # Template index (GitHub Pages landing page)
+├── index.html            # Home: picks a collection (GitHub Pages landing page)
+├── assets/               # Shared look (dm-site.css) and ΕΛ/EN switch (dm-site.js) for the showcase pages
+├── components/
+│   └── headers/          # 10 header styles, live
+├── layouts/              # (future) wireframes and page layouts
 ├── DEPLOY.md             # Step-by-step guide for putting a site live on a client's domain
 ├── contact-kit/          # Contact form mailer (master copy) + per-client config sample
 ├── tools/                # sync-contact-kit.sh: copies the contact kit into every template
 ├── legal/                # Shared privacy-policy text + per-site variables → privacy.html
 └── websites/
+    ├── index.html        # Template gallery
     ├── barber/           # Modern Barber template
     ├── courier/          # Minimalist Courier Services template
     ├── architect/        # Sustainable Architecture template
@@ -49,6 +59,8 @@ Interested? Get in touch at **[datamaster.gr](https://www.datamaster.gr)**.
     ├── accounting/       # Accounting & Tax Office template
     └── law/              # Law Firm template
 ```
+
+**Adding a new collection** (e.g. footers, forms, wireframes): put it in its own folder (`components/<name>/` or `layouts/<name>/`), reuse `assets/dm-site.css` and `assets/dm-site.js` (copy `components/headers/index.html` as a starting point), then add one entry to `COLLECTIONS` at the bottom of the root `index.html`. A group on the home page only shows once it has an entry.
 
 Each template is a self-contained static site (HTML/CSS/JS) with its own `dm-contact/` folder, served directly by GitHub Pages from the default branch.
 

@@ -3,368 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Templates | Data Master</title>
-    <meta name="description" content="Ready-made, responsive website templates for small and mid-sized businesses. Browse the live demos and Data Master adapts your choice to your brand and content.">
+    <title>Website samples | Data Master</title>
+    <meta name="description" content="Live samples of websites and website building blocks for small and mid-sized businesses: ready-made templates, header styles and more. Data Master adapts them to your brand.">
     <meta name="theme-color" content="#121110">
-    <meta property="og:title" content="Website Templates | Data Master">
-    <meta property="og:description" content="Browse live demos of ready-made business websites. Pick one, and we adapt it to your brand.">
+    <meta property="og:title" content="Website samples | Data Master">
+    <meta property="og:description" content="Ready-made website templates, header styles and more — live samples you can try.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://datamaster-gr.github.io/templates/">
     <link rel="canonical" href="https://datamaster-gr.github.io/templates/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 30'%3E%3Cpath d='M6 20h4v7H6zM12 16h4v11h-4zM18 12h4v15h-4z' fill='%23121110'/%3E%3Cpath d='M4 12.5l6 5.5L23 5' fill='none' stroke='%233F6B4E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18.5 4.2L24.6 3.4 23.8 9.5z' fill='%233F6B4E'/%3E%3C/svg%3E">
-    <style>
-        /* Data Master — Color Refresh 2026 */
-        :root {
-            color-scheme: light;
-            --ink-900: #121110;
-            --ink-700: #2A2724;
-            --ink-600: #3E3A35;
-            --ink-200: #D2CBC2;
-            --ink-100: #ECE7E1;
-            --ink-50:  #F7F4F0;
-            --terra-700: #A8452A;
-            --terra-600: #C0522F;
-            --terra-100: #F9E3DA;
-            --sand-200: #E7DCD0;
-            --sand-100: #F2EBE3;
-            --sage-700: #3F6B4E;
-            --sage-100: #E4EEE6;
-            --white: #FFFFFF;
-
-            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --radius: 10px;
-            --wrap: 1080px;
-        }
-
-        *, *::before, *::after { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            font-family: var(--font);
-            font-size: 17px;
-            line-height: 1.6;
-            color: var(--ink-900);
-            background: var(--ink-50);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a { color: inherit; }
-        a:focus-visible, .btn:focus-visible {
-            outline: 3px solid var(--terra-600);
-            outline-offset: 3px;
-        }
-
-        .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
-
-        /* --- Header --- */
-        .site-header {
-            background: var(--white);
-            border-bottom: 1px solid var(--ink-100);
-        }
-        .site-header .wrap {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            min-height: 68px;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-        .brand svg { width: 30px; height: 32px; flex: none; }
-        .brand-name {
-            display: block;
-            font-size: 19px;
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            white-space: nowrap;
-        }
-        .brand-name b { font-weight: 700; }
-        .brand-name span { font-weight: 500; }
-        .brand-tag {
-            display: block;
-            font-size: 11.5px;
-            color: var(--sage-700);
-            font-weight: 500;
-        }
-
-        .header-actions { display: flex; align-items: center; gap: 14px; }
-        .lang-switch {
-            display: inline-flex;
-            padding: 3px;
-            border: 1px solid var(--ink-200);
-            border-radius: 8px;
-            background: var(--ink-50);
-        }
-        .lang-switch button {
-            appearance: none;
-            border: 0;
-            margin: 0;
-            padding: 6px 10px;
-            border-radius: 6px;
-            background: transparent;
-            color: var(--ink-600);
-            font: 600 13px/1 var(--font);
-            letter-spacing: 0.04em;
-            cursor: pointer;
-        }
-        .lang-switch button:hover { color: var(--ink-900); }
-        .lang-switch button[aria-pressed="true"] {
-            background: var(--white);
-            color: var(--ink-900);
-            box-shadow: 0 1px 2px rgba(18, 17, 16, 0.12);
-        }
-        .lang-switch button:focus-visible { outline: 3px solid var(--terra-600); outline-offset: 2px; }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 11px 18px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 1.2;
-            text-decoration: none;
-            border: 1.5px solid transparent;
-            transition: background-color .15s ease, border-color .15s ease, color .15s ease;
-            white-space: nowrap;
-        }
-        .btn-primary { background: var(--ink-900); color: var(--ink-50); }
-        .btn-primary:hover { background: var(--ink-700); }
-        .btn-accent { background: var(--terra-600); color: var(--white); }
-        .btn-accent:hover { background: var(--terra-700); }
-        .btn-ghost { background: var(--white); color: var(--ink-900); border-color: var(--ink-200); }
-        .btn-ghost:hover { border-color: var(--ink-900); }
-
-        /* --- Hero --- */
-        .hero { padding: 64px 0 40px; }
-        .eyebrow {
-            margin: 0 0 12px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--terra-600);
-        }
-        h1 {
-            margin: 0;
-            max-width: 760px;
-            font-size: clamp(32px, 5vw, 48px);
-            line-height: 1.12;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-        }
-        .lead {
-            margin: 18px 0 0;
-            max-width: 640px;
-            font-size: 18.5px;
-            color: var(--ink-600);
-        }
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 28px;
-            margin: 28px 0 0;
-            padding: 0;
-            list-style: none;
-            font-size: 15px;
-            color: var(--ink-600);
-        }
-        .steps li { display: flex; align-items: center; gap: 10px; }
-        .steps .n {
-            display: inline-grid;
-            place-items: center;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--sage-100);
-            color: var(--sage-700);
-            font-weight: 700;
-            font-size: 13px;
-            flex: none;
-        }
-
-        /* --- Template grid --- */
-        .templates { padding: 16px 0 64px; }
-        h2 {
-            margin: 0 0 20px;
-            font-size: 24px;
-            line-height: 1.2;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        .card {
-            display: flex;
-            flex-direction: column;
-            background: var(--white);
-            border: 1px solid var(--ink-100);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: box-shadow .2s ease, border-color .2s ease;
-        }
-        .card:hover {
-            border-color: var(--ink-200);
-            box-shadow: 0 10px 28px rgba(18, 17, 16, 0.07);
-        }
-        .card-band {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            height: 112px;
-            padding: 16px 20px;
-            background: var(--sand-100);
-            border-bottom: 1px solid var(--sand-200);
-        }
-        .card-band .icon {
-            width: 44px;
-            height: 44px;
-            color: var(--ink-900);
-        }
-        .tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 999px;
-            background: var(--white);
-            border: 1px solid var(--sand-200);
-            color: var(--ink-600);
-            font-size: 12.5px;
-            font-weight: 600;
-        }
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 20px;
-        }
-        .card h3 {
-            margin: 0;
-            font-size: 19px;
-            line-height: 1.3;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        .card p {
-            margin: 8px 0 0;
-            font-size: 15.5px;
-            color: var(--ink-600);
-        }
-        .features {
-            margin: 14px 0 0;
-            padding: 0;
-            list-style: none;
-            font-size: 14.5px;
-            color: var(--ink-600);
-        }
-        .features li {
-            position: relative;
-            padding-left: 22px;
-            margin-top: 4px;
-        }
-        .features li::before {
-            content: "";
-            position: absolute;
-            left: 2px;
-            top: 7px;
-            width: 10px;
-            height: 6px;
-            border-left: 2px solid var(--sage-700);
-            border-bottom: 2px solid var(--sage-700);
-            transform: rotate(-45deg);
-        }
-        .card-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
-            padding-top: 20px;
-        }
-        .card-actions .btn { flex: 1 1 auto; }
-
-        /* --- CTA band --- */
-        .cta {
-            background: var(--ink-900);
-            color: var(--ink-50);
-        }
-        .cta .wrap {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            padding-top: 48px;
-            padding-bottom: 48px;
-        }
-        .cta h2 { margin: 0; color: var(--ink-50); }
-        .cta p { margin: 8px 0 0; color: var(--ink-200); max-width: 560px; }
-        .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-        .cta .btn-ghost {
-            background: transparent;
-            color: var(--ink-50);
-            border-color: var(--ink-600);
-        }
-        .cta .btn-ghost:hover { border-color: var(--ink-50); }
-
-        /* --- Footer --- */
-        footer {
-            padding: 24px 0;
-            font-size: 14px;
-            color: var(--ink-600);
-            background: var(--ink-50);
-        }
-        footer .wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 8px;
-        }
-        footer a { color: var(--ink-900); font-weight: 600; text-decoration: none; }
-        footer a:hover { color: var(--terra-600); }
-
-        @media (max-width: 560px) {
-            body { font-size: 16px; }
-            .hero { padding: 40px 0 28px; }
-            .lead { font-size: 17px; }
-            .site-header .btn { padding: 9px 12px; font-size: 14px; }
-            .header-actions { gap: 8px; }
-            .lang-switch button { padding: 6px 8px; }
-            .brand-tag { display: none; }
-            .brand-name { font-size: 17px; }
-            .brand svg { width: 26px; height: 28px; }
-            .grid { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 400px) {
-            .wrap { padding: 0 16px; }
-            .brand { gap: 7px; }
-            .brand-name { font-size: 16px; }
-            .header-actions { gap: 6px; }
-            .site-header .btn { padding: 8px 10px; font-size: 13.5px; }
-            .lang-switch button { padding: 6px 7px; font-size: 12.5px; }
-        }
-
-        @media (max-width: 350px) {
-            .site-header .btn { display: none; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * { transition: none !important; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/dm-site.css">
 </head>
 <body>
 
@@ -386,7 +34,7 @@
                     <button type="button" data-set-lang="el" lang="el" aria-pressed="false">ΕΛ</button>
                     <button type="button" data-set-lang="en" lang="en" aria-pressed="true">EN</button>
                 </div>
-                <a class="btn btn-primary" data-i18n="nav.contact" data-mail="mail.general" href="mailto:info@datamaster.gr?subject=Website%20template%20enquiry">Contact us</a>
+                <a class="btn btn-primary" data-i18n="nav.contact" data-mail="mail.general" href="mailto:info@datamaster.gr?subject=Website%20enquiry">Contact us</a>
             </div>
         </div>
     </header>
@@ -394,153 +42,38 @@
     <main>
         <section class="hero">
             <div class="wrap">
-                <p class="eyebrow" data-i18n="hero.eyebrow">Website templates</p>
-                <h1 data-i18n="hero.title">A professional website for your business, built on a proven design</h1>
-                <p class="lead" data-i18n="hero.lead">Browse the live demos below. Pick the one closest to your business, and we adapt it to your brand, services and content, then launch it on your own domain.</p>
-                <ol class="steps" aria-label="How it works" data-i18n-aria="hero.stepsLabel">
-                    <li><span class="n">1</span><span data-i18n="step1">Browse the demos</span></li>
-                    <li><span class="n">2</span><span data-i18n="step2">Send us your logo, texts and photos</span></li>
-                    <li><span class="n">3</span><span data-i18n="step3">We customise and launch it</span></li>
-                </ol>
+                <p class="eyebrow" data-i18n="hero.eyebrow">Website samples</p>
+                <h1 data-i18n="hero.title">See what your business website could look like</h1>
+                <p class="lead" data-i18n="hero.lead">Browse complete, ready-made websites or explore individual building blocks like headers. Everything here is live: click, scroll and try it, then tell us what you like.</p>
             </div>
         </section>
 
-        <section class="templates" aria-labelledby="templates-title">
-            <div class="wrap">
-                <h2 id="templates-title" data-i18n="grid.title">Choose a starting point</h2>
-
-                <ul class="grid">
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg>
-                            <span class="tag" data-i18n="barber.tag">Barbers &amp; salons</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="barber.title">Modern Barber</h3>
-                            <p data-i18n="barber.desc">A clean, single-page website that turns visitors into booked appointments.</p>
-                            <ul class="features">
-                                <li data-i18n="barber.f1">Booking section</li>
-                                <li data-i18n="barber.f2">Services &amp; price list</li>
-                                <li data-i18n="feat.responsive">Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/barber/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.barber" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Modern%20Barber%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-                            <span class="tag" data-i18n="courier.tag">Couriers &amp; logistics</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="courier.title">Minimalist Courier Services</h3>
-                            <p data-i18n="courier.desc">A simple, fast-loading website built around one goal: getting quote requests.</p>
-                            <ul class="features">
-                                <li data-i18n="courier.f1">Contact / quote request form</li>
-                                <li data-i18n="courier.f2">Clear service overview</li>
-                                <li data-i18n="feat.responsive">Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/courier/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.courier" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Courier%20Services%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/><path d="M12 5c2-2 5-2 6-1-1 1-3 2-6 1z"/></svg>
-                            <span class="tag" data-i18n="arch.tag">Architects &amp; engineers</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="arch.title">Sustainable Architecture &amp; Development</h3>
-                            <p data-i18n="arch.desc">A modern portfolio website that puts your completed projects front and centre.</p>
-                            <ul class="features">
-                                <li data-i18n="arch.f1">Project showcase</li>
-                                <li data-i18n="arch.f2">Google Maps &amp; contact form</li>
-                                <li data-i18n="feat.responsive">Fully responsive</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/architect/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.arch" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Architecture%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-2.2 0-3.6 1-5 1S4 3.5 3 4.5C1.5 6 2 9.5 3 12c.8 2 1.3 4 1.6 6 .3 2 1 3 2 3s1.5-1 1.8-2.6C8.7 17 9.5 15 12 15s3.3 2 3.6 3.4c.3 1.6.8 2.6 1.8 2.6s1.7-1 2-3c.3-2 .8-4 1.6-6 1-2.5 1.5-6 0-7.5-1-1-2.6-.5-4-.5s-2.8-1-5-1z"/></svg>
-                            <span class="tag" data-i18n="dental.tag">Dentists &amp; doctors</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="dental.title">Dental &amp; Medical Practice</h3>
-                            <p data-i18n="dental.desc">A calm, trustworthy practice website built around one goal: booked appointments.</p>
-                            <ul class="features">
-                                <li data-i18n="dental.f1">Appointment request form</li>
-                                <li data-i18n="dental.f2">Treatments, prices &amp; FAQ</li>
-                                <li data-i18n="feat.bilingual">Greek &amp; English</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/dental/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.dental" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Dental%20Practice%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h8"/></svg>
-                            <span class="tag" data-i18n="acc.tag">Accountants &amp; advisors</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="acc.title">Accounting &amp; Tax Office</h3>
-                            <p data-i18n="acc.desc">A professional office website that turns visitors into free first meetings.</p>
-                            <ul class="features">
-                                <li data-i18n="acc.f1">Monthly plans with prices</li>
-                                <li data-i18n="acc.f2">Meeting request form</li>
-                                <li data-i18n="feat.bilingual">Greek &amp; English</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/accounting/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.acc" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Accounting%20Office%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="card">
-                        <div class="card-band">
-                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14M12 5l-7 2M12 5l7 2"/><path d="M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/></svg>
-                            <span class="tag" data-i18n="law.tag">Law firms</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 data-i18n="law.title">Law Firm</h3>
-                            <p data-i18n="law.desc">A discreet, authoritative website that turns enquiries into consultations, within the Greek bar's advertising rules.</p>
-                            <ul class="features">
-                                <li data-i18n="law.f1">Practice areas, team &amp; fees</li>
-                                <li data-i18n="law.f2">Consultation request form</li>
-                                <li data-i18n="feat.bilingual">Greek &amp; English</li>
-                            </ul>
-                            <div class="card-actions">
-                                <a class="btn btn-primary" data-i18n="btn.demo" href="websites/law/" target="_blank" rel="noopener">View live demo</a>
-                                <a class="btn btn-ghost" data-i18n="btn.want" data-mail="mail.law" href="mailto:info@datamaster.gr?subject=I%27m%20interested%20in%20the%20Law%20Firm%20template">I want this</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+        <!--
+            HOW TO ADD A NEW COLLECTION
+            1. Put it in its own folder: websites/, components/<name>/ (headers, footers, forms…)
+               or layouts/<name>/ (wireframes, page layouts…).
+            2. Add one entry to COLLECTIONS in the script at the bottom of this page.
+            A group (Complete websites / Building blocks / Layouts) only shows once it has an entry.
+        -->
+        <section class="groups" aria-label="Collections">
+            <div class="wrap" id="groups">
+                <noscript>
+                    <ul class="cgrid">
+                        <li><a class="ccard" href="websites/"><div class="ccard-body"><h3>Ready-made websites / Έτοιμες ιστοσελίδες</h3></div></a></li>
+                        <li><a class="ccard" href="components/headers/"><div class="ccard-body"><h3>Header styles / Στυλ header</h3></div></a></li>
+                    </ul>
+                </noscript>
             </div>
         </section>
 
         <section class="cta" aria-labelledby="cta-title">
             <div class="wrap">
                 <div>
-                    <h2 id="cta-title" data-i18n="cta.title">Not sure which one fits?</h2>
+                    <h2 id="cta-title" data-i18n="cta.title">Not sure what fits?</h2>
                     <p data-i18n="cta.text">Tell us about your business and we'll recommend the best starting point, or design something tailored to you.</p>
                 </div>
                 <div class="cta-actions">
-                    <a class="btn btn-accent" data-i18n="cta.ask" data-mail="mail.help" href="mailto:info@datamaster.gr?subject=Help%20me%20choose%20a%20website%20template">Ask us</a>
+                    <a class="btn btn-accent" data-i18n="cta.ask" data-mail="mail.help" href="mailto:info@datamaster.gr?subject=Help%20me%20choose%20for%20my%20website">Ask us</a>
                     <a class="btn btn-ghost" data-i18n="cta.visit" href="https://www.datamaster.gr">Visit datamaster.gr</a>
                 </div>
             </div>
@@ -556,177 +89,80 @@
 
     <script>
     (function () {
-        var MAIL = "info@datamaster.gr";
-        var T = {
-            en: {
-                "meta.title": "Website Templates | Data Master",
-                "meta.desc": "Ready-made, responsive website templates for small and mid-sized businesses. Browse the live demos and Data Master adapts your choice to your brand and content.",
-                "nav.contact": "Contact us",
-                "hero.eyebrow": "Website templates",
-                "hero.title": "A professional website for your business, built on a proven design",
-                "hero.lead": "Browse the live demos below. Pick the one closest to your business, and we adapt it to your brand, services and content, then launch it on your own domain.",
-                "hero.stepsLabel": "How it works",
-                "step1": "Browse the demos",
-                "step2": "Send us your logo, texts and photos",
-                "step3": "We customise and launch it",
-                "grid.title": "Choose a starting point",
-                "barber.tag": "Barbers & salons",
-                "barber.title": "Modern Barber",
-                "barber.desc": "A clean, single-page website that turns visitors into booked appointments.",
-                "barber.f1": "Booking section",
-                "barber.f2": "Services & price list",
-                "courier.tag": "Couriers & logistics",
-                "courier.title": "Minimalist Courier Services",
-                "courier.desc": "A simple, fast-loading website built around one goal: getting quote requests.",
-                "courier.f1": "Contact / quote request form",
-                "courier.f2": "Clear service overview",
-                "arch.tag": "Architects & engineers",
-                "arch.title": "Sustainable Architecture & Development",
-                "arch.desc": "A modern portfolio website that puts your completed projects front and centre.",
-                "arch.f1": "Project showcase",
-                "arch.f2": "Google Maps & contact form",
-                "feat.responsive": "Fully responsive",
-                "btn.demo": "View live demo",
-                "btn.want": "I want this",
-                "cta.title": "Not sure which one fits?",
-                "cta.text": "Tell us about your business and we'll recommend the best starting point, or design something tailored to you.",
-                "cta.ask": "Ask us",
-                "cta.visit": "Visit datamaster.gr",
-                "footer.note": "Business names, texts and images in the demos are sample content.",
-                "mail.general": "Website template enquiry",
-                "mail.help": "Help me choose a website template",
-                "mail.barber": "I'm interested in the Modern Barber template",
-                "mail.courier": "I'm interested in the Courier Services template",
-                "mail.arch": "I'm interested in the Architecture template",
-                "mail.dental": "I'm interested in the Dental Practice template",
-                "mail.acc": "I'm interested in the Accounting Office template",
-                "dental.tag": "Dentists & doctors",
-                "dental.title": "Dental & Medical Practice",
-                "dental.desc": "A calm, trustworthy practice website built around one goal: booked appointments.",
-                "dental.f1": "Appointment request form",
-                "dental.f2": "Treatments, prices & FAQ",
-                "acc.tag": "Accountants & advisors",
-                "acc.title": "Accounting & Tax Office",
-                "acc.desc": "A professional office website that turns visitors into free first meetings.",
-                "acc.f1": "Monthly plans with prices",
-                "acc.f2": "Meeting request form",
-                "feat.bilingual": "Greek & English",
-                "mail.law": "I'm interested in the Law Firm template",
-                "law.tag": "Law firms",
-                "law.title": "Law Firm",
-                "law.desc": "A discreet, authoritative website that turns enquiries into consultations, within the Greek bar's advertising rules.",
-                "law.f1": "Practice areas, team & fees",
-                "law.f2": "Consultation request form"
-            },
-            el: {
-                "meta.title": "Πρότυπα ιστοσελίδων | Data Master",
-                "meta.desc": "Έτοιμα, responsive πρότυπα ιστοσελίδων για μικρομεσαίες επιχειρήσεις. Δείτε τα live demos και η Data Master προσαρμόζει την επιλογή σας στο brand και το περιεχόμενό σας.",
-                "nav.contact": "Επικοινωνία",
-                "hero.eyebrow": "ΠΡΟΤΥΠΑ ΙΣΤΟΣΕΛΙΔΩΝ",
-                "hero.title": "Επαγγελματική ιστοσελίδα για την επιχείρησή σας, πάνω σε δοκιμασμένο σχέδιο",
-                "hero.lead": "Δείτε τα live demos παρακάτω. Διαλέξτε αυτό που ταιριάζει περισσότερο στην επιχείρησή σας και εμείς το προσαρμόζουμε στο brand, στις υπηρεσίες και στο περιεχόμενό σας και το ανεβάζουμε στο δικό σας domain.",
-                "hero.stepsLabel": "Πώς λειτουργεί",
-                "step1": "Δείτε τα demos",
-                "step2": "Στείλτε μας λογότυπο, κείμενα και φωτογραφίες",
-                "step3": "Εμείς το προσαρμόζουμε και το ανεβάζουμε",
-                "grid.title": "Διαλέξτε από πού θα ξεκινήσετε",
-                "barber.tag": "Κουρεία & κομμωτήρια",
-                "barber.title": "Σύγχρονο Κουρείο",
-                "barber.desc": "Καθαρή ιστοσελίδα μίας σελίδας που μετατρέπει τους επισκέπτες σε κλεισμένα ραντεβού.",
-                "barber.f1": "Ενότητα κρατήσεων",
-                "barber.f2": "Υπηρεσίες & τιμοκατάλογος",
-                "courier.tag": "Courier & μεταφορές",
-                "courier.title": "Μινιμαλιστικές Υπηρεσίες Courier",
-                "courier.desc": "Απλή, γρήγορη ιστοσελίδα με έναν στόχο: να φέρνει αιτήματα προσφοράς.",
-                "courier.f1": "Φόρμα επικοινωνίας / αιτήματος προσφοράς",
-                "courier.f2": "Ξεκάθαρη παρουσίαση υπηρεσιών",
-                "arch.tag": "Αρχιτέκτονες & μηχανικοί",
-                "arch.title": "Βιώσιμη Αρχιτεκτονική & Ανάπτυξη",
-                "arch.desc": "Σύγχρονο portfolio που φέρνει στο προσκήνιο τα έργα που έχετε ολοκληρώσει.",
-                "arch.f1": "Παρουσίαση έργων",
-                "arch.f2": "Google Maps & φόρμα επικοινωνίας",
-                "feat.responsive": "Responsive σε κάθε συσκευή",
-                "btn.demo": "Δείτε το demo",
-                "btn.want": "Το θέλω",
-                "cta.title": "Δεν είστε σίγουροι ποιο ταιριάζει;",
-                "cta.text": "Πείτε μας για την επιχείρησή σας και θα σας προτείνουμε την καλύτερη αφετηρία ή θα σχεδιάσουμε κάτι αποκλειστικά για εσάς.",
-                "cta.ask": "Ρωτήστε μας",
-                "cta.visit": "Επισκεφθείτε το datamaster.gr",
-                "footer.note": "Τα ονόματα επιχειρήσεων, τα κείμενα και οι εικόνες στα demos είναι ενδεικτικά.",
-                "mail.general": "Ερώτηση για πρότυπα ιστοσελίδων",
-                "mail.help": "Βοηθήστε με να διαλέξω πρότυπο ιστοσελίδας",
-                "mail.barber": "Ενδιαφέρομαι για το πρότυπο «Σύγχρονο Κουρείο»",
-                "mail.courier": "Ενδιαφέρομαι για το πρότυπο «Υπηρεσίες Courier»",
-                "mail.arch": "Ενδιαφέρομαι για το πρότυπο «Βιώσιμη Αρχιτεκτονική»",
-                "mail.dental": "Ενδιαφέρομαι για το πρότυπο «Οδοντιατρείο / Ιατρείο»",
-                "mail.acc": "Ενδιαφέρομαι για το πρότυπο «Λογιστικό γραφείο»",
-                "dental.tag": "Οδοντίατροι & γιατροί",
-                "dental.title": "Οδοντιατρείο / Ιατρείο",
-                "dental.desc": "Ιστοσελίδα ιατρείου που εμπνέει εμπιστοσύνη, με έναν στόχο: κλεισμένα ραντεβού.",
-                "dental.f1": "Φόρμα αιτήματος ραντεβού",
-                "dental.f2": "Θεραπείες, τιμές & συχνές ερωτήσεις",
-                "acc.tag": "Λογιστές & σύμβουλοι",
-                "acc.title": "Λογιστικό & φοροτεχνικό γραφείο",
-                "acc.desc": "Επαγγελματική ιστοσελίδα γραφείου που μετατρέπει επισκέπτες σε δωρεάν πρώτες συναντήσεις.",
-                "acc.f1": "Μηνιαία πακέτα με τιμές",
-                "acc.f2": "Φόρμα αιτήματος συνάντησης",
-                "feat.bilingual": "Ελληνικά & Αγγλικά",
-                "mail.law": "Ενδιαφέρομαι για το πρότυπο «Δικηγορικό γραφείο»",
-                "law.tag": "Δικηγορικά γραφεία",
-                "law.title": "Δικηγορικό γραφείο",
-                "law.desc": "Διακριτική ιστοσελίδα κύρους που μετατρέπει ερωτήματα σε συναντήσεις, σύμφωνα με τους κανόνες προβολής του Κώδικα Δικηγόρων.",
-                "law.f1": "Τομείς, ομάδα & αμοιβές",
-                "law.f2": "Φόρμα αιτήματος συνάντησης"
-            }
+        /* Groups, in display order. A group is shown only if a collection uses it. */
+        var GROUPS = [
+            { id: "sites",
+              en: { title: "Complete websites", desc: "Full websites built for specific types of business, ready to adapt to yours." },
+              el: { title: "Ολοκληρωμένες ιστοσελίδες", desc: "Πλήρεις ιστοσελίδες για συγκεκριμένους κλάδους, έτοιμες να προσαρμοστούν στη δική σας επιχείρηση." } },
+            { id: "blocks",
+              en: { title: "Building blocks", desc: "Individual parts of a website. Pick the style you like and we use it in your site." },
+              el: { title: "Δομικά στοιχεία", desc: "Μεμονωμένα κομμάτια μιας ιστοσελίδας. Διαλέξτε το στυλ που σας αρέσει και το χρησιμοποιούμε στη δική σας." } },
+            { id: "layouts",
+              en: { title: "Wireframes & layouts", desc: "Page structures and design layouts to plan your site before it's built." },
+              el: { title: "Wireframes & διατάξεις", desc: "Δομές σελίδων και διατάξεις σχεδίασης, για να σχεδιάσουμε την ιστοσελίδα σας πριν φτιαχτεί." } }
+        ];
+
+        /* One entry per collection. art: "site" | "headers" (add new drawings to ART below). */
+        var COLLECTIONS = [
+            { group: "sites", href: "websites/", art: "site",
+              en: { title: "Ready-made websites", count: "6 templates", desc: "Barber, courier, architect, dental practice, accounting office and law firm — live demos you can browse.", go: "Browse the templates →" },
+              el: { title: "Έτοιμες ιστοσελίδες", count: "6 πρότυπα", desc: "Κουρείο, courier, αρχιτέκτονας, ιατρείο, λογιστικό και δικηγορικό γραφείο — live demos για να τα δείτε από κοντά.", go: "Δείτε τα πρότυπα →" } },
+            { group: "blocks", href: "components/headers/", art: "headers",
+              en: { title: "Header styles", count: "10 styles", desc: "The top bar of your site: logo, menu and call to action. Ten common styles, each one live.", go: "See the headers →" },
+              el: { title: "Στυλ header", count: "10 στυλ", desc: "Η πάνω μπάρα της ιστοσελίδας σας: λογότυπο, μενού και κουμπί δράσης. Δέκα δημοφιλή στυλ, όλα σε λειτουργία.", go: "Δείτε τα header →" } }
+        ];
+
+        var ART = {
+            site: '<svg viewBox="0 0 300 140" aria-hidden="true"><rect x="40" y="6" width="220" height="128" rx="8" fill="#fff" stroke="#E7DCD0"/><rect x="40" y="6" width="220" height="16" rx="8" fill="#ECE7E1"/><circle cx="52" cy="14" r="3" fill="#D2CBC2"/><circle cx="62" cy="14" r="3" fill="#D2CBC2"/><rect x="54" y="32" width="34" height="8" rx="3" fill="#121110"/><rect x="170" y="34" width="20" height="4" rx="2" fill="#D2CBC2"/><rect x="196" y="34" width="20" height="4" rx="2" fill="#D2CBC2"/><rect x="222" y="31" width="26" height="10" rx="5" fill="#C0522F"/><rect x="54" y="52" width="110" height="10" rx="3" fill="#2A2724"/><rect x="54" y="68" width="86" height="6" rx="3" fill="#D2CBC2"/><rect x="54" y="82" width="40" height="12" rx="6" fill="#3F6B4E"/><rect x="178" y="50" width="70" height="46" rx="6" fill="#F2EBE3"/><rect x="54" y="106" width="58" height="20" rx="4" fill="#F7F4F0"/><rect x="121" y="106" width="58" height="20" rx="4" fill="#F7F4F0"/><rect x="188" y="106" width="60" height="20" rx="4" fill="#F7F4F0"/></svg>',
+            headers: '<svg viewBox="0 0 300 140" aria-hidden="true"><g><rect x="20" y="8" width="260" height="34" rx="7" fill="#fff" stroke="#E7DCD0"/><rect x="32" y="20" width="34" height="10" rx="3" fill="#121110"/><rect x="160" y="23" width="20" height="4" rx="2" fill="#D2CBC2"/><rect x="186" y="23" width="20" height="4" rx="2" fill="#D2CBC2"/><rect x="212" y="23" width="20" height="4" rx="2" fill="#D2CBC2"/><rect x="238" y="23" width="30" height="4" rx="2" fill="#D2CBC2"/></g><g><rect x="20" y="53" width="260" height="34" rx="7" fill="#121110"/><rect x="32" y="65" width="34" height="10" rx="3" fill="#F7F4F0"/><rect x="170" y="68" width="20" height="4" rx="2" fill="#8B857E"/><rect x="196" y="68" width="20" height="4" rx="2" fill="#8B857E"/><rect x="226" y="62" width="42" height="16" rx="8" fill="#C0522F"/></g><g><rect x="20" y="98" width="260" height="34" rx="7" fill="#fff" stroke="#E7DCD0"/><rect x="133" y="104" width="34" height="9" rx="3" fill="#121110"/><rect x="104" y="120" width="18" height="4" rx="2" fill="#3F6B4E"/><rect x="128" y="120" width="18" height="4" rx="2" fill="#D2CBC2"/><rect x="152" y="120" width="18" height="4" rx="2" fill="#D2CBC2"/><rect x="176" y="120" width="18" height="4" rx="2" fill="#D2CBC2"/></g></svg>'
         };
 
-        function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+        var T = { en: {
+                "meta.title": "Website samples | Data Master",
+                "meta.desc": "Live samples of websites and website building blocks for small and mid-sized businesses: ready-made templates, header styles and more. Data Master adapts them to your brand.",
+                "hero.eyebrow": "Website samples",
+                "hero.title": "See what your business website could look like",
+                "hero.lead": "Browse complete, ready-made websites or explore individual building blocks like headers. Everything here is live: click, scroll and try it, then tell us what you like."
+            }, el: {
+                "meta.title": "Δείγματα ιστοσελίδων | Data Master",
+                "meta.desc": "Live δείγματα ιστοσελίδων και δομικών στοιχείων για μικρομεσαίες επιχειρήσεις: έτοιμα πρότυπα, στυλ header και άλλα. Η Data Master τα προσαρμόζει στο brand σας.",
+                "hero.eyebrow": "Δείγματα ιστοσελίδων",
+                "hero.title": "Δείτε πώς μπορεί να είναι η ιστοσελίδα της επιχείρησής σας",
+                "hero.lead": "Δείτε ολοκληρωμένες, έτοιμες ιστοσελίδες ή εξερευνήστε μεμονωμένα δομικά στοιχεία, όπως τα header. Όλα είναι σε λειτουργία: πατήστε, κάντε scroll, δοκιμάστε — και πείτε μας τι σας αρέσει."
+            } };
 
-        function apply(lang) {
-            var t = T[lang];
-            document.documentElement.lang = lang;
-            document.title = t["meta.title"];
-            var d = document.querySelector('meta[name="description"]');
-            if (d) d.setAttribute("content", t["meta.desc"]);
-            document.querySelectorAll("[data-i18n]").forEach(function (el) {
-                var v = t[el.getAttribute("data-i18n")];
-                if (v != null) el.textContent = v;
-            });
-            document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
-                var v = t[el.getAttribute("data-i18n-aria")];
-                if (v != null) el.setAttribute("aria-label", v);
-            });
-            document.querySelectorAll("[data-mail]").forEach(function (el) {
-                var v = t[el.getAttribute("data-mail")];
-                if (v != null) el.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(v);
-            });
-            document.querySelectorAll("[data-set-lang]").forEach(function (b) {
-                b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang ? "true" : "false");
-            });
-        }
+        function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
-        function setLang(lang, remember) {
-            if (!T[lang]) return;
-            apply(lang);
-            if (remember) store("dm-lang", lang);
-            try {
-                var u = new URL(location.href);
-                u.searchParams.set("lang", lang);
-                history.replaceState(null, "", u);
-            } catch (e) {}
-        }
-
-        var fromUrl = new URLSearchParams(location.search).get("lang");
-        var initial = T[fromUrl] ? fromUrl
-            : (T[store("dm-lang")] ? store("dm-lang")
-            : ((navigator.language || "").toLowerCase().indexOf("el") === 0 ? "el" : "en"));
-        apply(initial);
-
-        document.querySelectorAll("[data-set-lang]").forEach(function (b) {
-            b.addEventListener("click", function () { setLang(b.getAttribute("data-set-lang"), true); });
+        var html = "";
+        GROUPS.forEach(function (g) {
+            var items = COLLECTIONS.filter(function (c) { return c.group === g.id; });
+            if (!items.length) return;
+            ["en", "el"].forEach(function (l) {
+                T[l]["g." + g.id + ".title"] = g[l].title;
+                T[l]["g." + g.id + ".desc"] = g[l].desc;
+            });
+            html += '<div class="group"><div class="group-head">' +
+                '<h2 data-i18n="g.' + g.id + '.title">' + esc(g.en.title) + '</h2>' +
+                '<p data-i18n="g.' + g.id + '.desc">' + esc(g.en.desc) + '</p></div><ul class="cgrid">';
+            items.forEach(function (c, i) {
+                var k = "c." + g.id + "." + i + ".";
+                ["en", "el"].forEach(function (l) {
+                    ["title", "count", "desc", "go"].forEach(function (f) { T[l][k + f] = c[l][f]; });
+                });
+                html += '<li><a class="ccard" href="' + esc(c.href) + '">' +
+                    '<div class="ccard-art">' + (ART[c.art] || "") + '</div>' +
+                    '<div class="ccard-body"><div class="ccard-top"><h3 data-i18n="' + k + 'title">' + esc(c.en.title) + '</h3>' +
+                    '<span class="count" data-i18n="' + k + 'count">' + esc(c.en.count) + '</span></div>' +
+                    '<p data-i18n="' + k + 'desc">' + esc(c.en.desc) + '</p>' +
+                    '<span class="go" data-i18n="' + k + 'go">' + esc(c.en.go) + '</span></div></a></li>';
+            });
+            html += "</ul></div>";
         });
+        document.getElementById("groups").innerHTML = html;
+        window.DM_T = T;
     })();
     </script>
+    <script src="assets/dm-site.js"></script>
 
 </body>
 </html>

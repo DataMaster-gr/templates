@@ -467,7 +467,7 @@ def page(c):
             f"{'ΕΛ' if l == 'el' else l.upper()}</button>" for l in langs) + "</div>")
     ribbon = ""
     if c.get("demo"):
-        ribbon = (f"<div class=\"dm-ribbon\">{bi(c, 'demo_rib')} <a href=\"../../\">{bi(c, 'demo_link')}</a></div>")
+        ribbon = (f"<div class=\"dm-ribbon\">{bi(c, 'demo_rib')} <a href=\"../\">{bi(c, 'demo_link')}</a></div>")
     titles = json.dumps({l: f"{UI[l]['title']} | {tr(c['trading_title'], l)}" for l in langs}, ensure_ascii=False)
     year = c["policy_last_updated"][:4]
     return f"""<!DOCTYPE html>
