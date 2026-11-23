@@ -7,7 +7,7 @@ ready-made templates, header styles and more to come. Browse them, pick what fit
 
 | Collection | What it is | Live |
 |---|---|---|
-| **Ready-made websites** | 6 complete website templates (below) | [Browse →](https://datamaster-gr.github.io/templates/websites/) |
+| **Ready-made websites** | 7 complete website templates (below) | [Browse →](https://datamaster-gr.github.io/templates/websites/) |
 | **Header styles** | 10 live header styles: classic, centered, call to action, sticky, transparent, gradient, dark, icons, search, mega menu | [See them →](https://datamaster-gr.github.io/templates/components/headers/) |
 
 ---
@@ -22,6 +22,7 @@ ready-made templates, header styles and more to come. Browse them, pick what fit
 | **Dental & Medical Practice** | Dentists, doctors, physiotherapists, clinics | Appointment request form, treatments & prices, FAQ, Greek & English | [View demo →](https://datamaster-gr.github.io/templates/websites/dental/) |
 | **Accounting & Tax Office** | Accountants, tax advisors, business consultants | Monthly plans, "switch your accountant" section, meeting request form, Greek & English | [View demo →](https://datamaster-gr.github.io/templates/websites/accounting/) |
 | **Law Firm** | Law firms, solo lawyers, notaries | Practice areas, team, fee approach, legal articles, consultation form, Greek & English; written within the Greek bar's advertising rules | [View demo →](https://datamaster-gr.github.io/templates/websites/law/) |
+| **Hard Rock Band** | Bands, musicians, DJs, live acts | Dark stage look, tour dates on a taped setlist with ticket links, album & tracklist, video, booking form, newsletter; English | [View demo →](https://datamaster-gr.github.io/templates/websites/band/) |
 
 All business names, texts and images in the demos are sample content.
 
@@ -57,7 +58,8 @@ Interested? Get in touch at **[datamaster.gr](https://www.datamaster.gr)**.
     ├── architect/        # Sustainable Architecture template
     ├── dental/           # Dental & Medical Practice template
     ├── accounting/       # Accounting & Tax Office template
-    └── law/              # Law Firm template
+    ├── law/              # Law Firm template
+    └── band/             # Hard Rock Band template
 ```
 
 **Adding a new collection** (e.g. footers, forms, wireframes): put it in its own folder (`components/<name>/` or `layouts/<name>/`), reuse `assets/dm-site.css` and `assets/dm-site.js` (copy `components/headers/index.html` as a starting point), then add one entry to `COLLECTIONS` at the bottom of the root `index.html`. A group on the home page only shows once it has an entry.

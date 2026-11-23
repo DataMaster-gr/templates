@@ -40,7 +40,7 @@ Subject:  Νέο μήνυμα από την ιστοσελίδα – Μαρία 
 A table with every field (dropdowns and radio buttons as the text the visitor saw), the date
 (Athens time), the page language and a link to the page. "Reply" writes straight to the visitor.
 
-## Wiring a form (already done in all six templates)
+## Wiring a form (already done in all templates)
 
 ```html
 <form action="dm-contact/contact.php" method="post" data-dm-contact
