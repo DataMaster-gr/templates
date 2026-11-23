@@ -4,3 +4,4 @@ dm-contact-config.php
 **/dm-contact/storage/
 dm-contact-storage/
 .DS_Store
+__pycache__/

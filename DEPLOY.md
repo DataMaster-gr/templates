@@ -40,7 +40,7 @@ Fill this in before touching the server. You need every line.
 | Where that inbox is hosted | HappyByte / Google Workspace / Microsoft 365 / other | Decides step 4 (see step 3) |
 | Where the domain's DNS is managed | Plesk (HappyByte) / the registrar (e.g. Papaki, Top.Host) | Decides where you add records in step 5 |
 | Business details for the privacy page | Name, ΑΦΜ, ΓΕΜΗ, address, phone, email | For `legal/sites.json` |
-| Template chosen | `dental` | Folder name under `websites/` |
+| Template chosen | `dental` | Folder name under `websites/` (single-page) or `multipage/` (multi-page) |
 
 ---
 
@@ -66,6 +66,12 @@ Fill this in before touching the server. You need every line.
      the client's;
    - **remove the demo ribbon** at the top (the bar that says "Demo template by Data Master");
    - update the `<title>`, the meta description and the schema.org block in `<head>`.
+
+   **Multi-page template (`multipage/…`)?** Don't edit the HTML pages one by one. Copy the whole
+   folder including `_src/`, edit the texts in `site/_src/content_el.py` and `content_en.py`, and
+   the business details (`BASE_URL` = the client's domain, phone, email, map) at the top of
+   `site/_src/build.py`. Remove the demo ribbon there too (the `ribbon` line in `header()`), then
+   run `python3 site/_src/build.py`. **Don't upload `_src/`** to the server.
 
 4. Privacy page: add the client to `legal/sites.json` (copy the template's entry, fill in the
    business details, set the `uses_…` flags to what the site really uses), then build it and copy

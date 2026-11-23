@@ -9,7 +9,8 @@ each site lists exactly what it uses.
     python3 legal/build.py            # build all sites
     python3 legal/build.py dental     # build one site
 
-Output: websites/<site>/privacy.html. Never hand-edit the output; change the
+Output: websites/<site>/privacy.html, or <path>/privacy.html when the site
+sets "path" in sites.json (multi-page sites live in multipage/). Never hand-edit the output; change the
 text here or the variables in sites.json and rebuild.
 
 Not legal advice: the text must be reviewed once by a lawyer (pack §11).
@@ -609,7 +610,8 @@ def main(argv):
     names = argv or list(cfg["sites"])
     for name in names:
         c = {**cfg["defaults"], **cfg["sites"][name]}
-        out = ROOT / "websites" / name / "privacy.html"
+        # "path" lets a site live outside websites/ (e.g. "multipage/law").
+        out = ROOT / c.get("path", f"websites/{name}") / "privacy.html"
         out.write_text(page(c), encoding="utf-8")
         print(f"built {out.relative_to(ROOT)}")
 

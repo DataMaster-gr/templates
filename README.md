@@ -7,12 +7,13 @@ ready-made templates, header styles and more to come. Browse them, pick what fit
 
 | Collection | What it is | Live |
 |---|---|---|
-| **Ready-made websites** | 7 complete website templates (below) | [Browse →](https://datamaster-gr.github.io/templates/websites/) |
+| **Single-page websites** | 7 one-page website templates (below) | [Browse →](https://datamaster-gr.github.io/templates/websites/) |
+| **Multi-page websites** | Complete sites with a page per service, team, fees and articles (below) | [Browse →](https://datamaster-gr.github.io/templates/multipage/) |
 | **Header styles** | 10 live header styles: classic, centered, call to action, sticky, transparent, gradient, dark, icons, search, mega menu | [See them →](https://datamaster-gr.github.io/templates/components/headers/) |
 
 ---
 
-## Templates
+## Single-page templates
 
 | Template | Best for | Highlights | Live preview |
 |---|---|---|---|
@@ -23,6 +24,22 @@ ready-made templates, header styles and more to come. Browse them, pick what fit
 | **Accounting & Tax Office** | Accountants, tax advisors, business consultants | Monthly plans, "switch your accountant" section, meeting request form, Greek & English | [View demo →](https://datamaster-gr.github.io/templates/websites/accounting/) |
 | **Law Firm** | Law firms, solo lawyers, notaries | Practice areas, team, fee approach, legal articles, consultation form, Greek & English; written within the Greek bar's advertising rules | [View demo →](https://datamaster-gr.github.io/templates/websites/law/) |
 | **Hard Rock Band** | Bands, musicians, DJs, live acts | Dark stage look, tour dates on a taped setlist with ticket links, album & tracklist, video, booking form, newsletter; English | [View demo →](https://datamaster-gr.github.io/templates/websites/band/) |
+
+## Multi-page templates
+
+For businesses that need more than one page: a separate page for every service (each can rank on Google for its own searches), plus team, fees, articles and contact. Still plain static HTML: fast, secure, nothing to update.
+
+| Template | Best for | Pages | Live preview |
+|---|---|---|---|
+| **Law Firm** | Law firms that want a page per practice area | 15 per language (Greek + English): home, practice areas + 6 area pages, team, fees, articles + 3 articles, contact. Greek URLs in Latin letters, hreflang, breadcrumbs, structured data (LegalService, FAQ, Article), `sitemap.xml` | [View demo →](https://datamaster-gr.github.io/templates/multipage/law/) |
+
+**Editing a multi-page site:** don't edit the generated HTML. Each site has a `_src/` folder with the texts (`content_el.py`, `content_en.py`) and a build script that writes every page with the shared header, footer, menus and language switch:
+
+```bash
+python3 multipage/law/_src/build.py
+```
+
+Change the phone number or a practice area once, rebuild, and every page is updated. `_src/` is not published on GitHub Pages (Jekyll skips folders starting with `_`) and must not be uploaded to the client's server.
 
 All business names, texts and images in the demos are sample content.
 
@@ -51,8 +68,11 @@ Interested? Get in touch at **[datamaster.gr](https://www.datamaster.gr)**.
 ├── contact-kit/          # Contact form mailer (master copy) + per-client config sample
 ├── tools/                # sync-contact-kit.sh: copies the contact kit into every template
 ├── legal/                # Shared privacy-policy text + per-site variables → privacy.html
+├── multipage/
+│   ├── index.html        # Multi-page template gallery
+│   └── law/              # Law Firm, multi-page (generated; sources in law/_src/)
 └── websites/
-    ├── index.html        # Template gallery
+    ├── index.html        # Single-page template gallery
     ├── barber/           # Modern Barber template
     ├── courier/          # Minimalist Courier Services template
     ├── architect/        # Sustainable Architecture template

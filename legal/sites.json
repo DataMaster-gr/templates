@@ -175,6 +175,51 @@
         "body_font": "\"Archivo\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
         "radius": "0px"
       }
+    },
+    "law-multipage": {
+      "business_name": {
+        "el": "Νικολάου & Συνεργάτες Δικηγορική Εταιρεία",
+        "en": "Nikolaou & Partners Law Firm"
+      },
+      "trading_title": {
+        "el": "Νικολάου & Συνεργάτες",
+        "en": "Nikolaou & Partners"
+      },
+      "address": {
+        "el": "Ακαδημίας 00, 106 79 Αθήνα",
+        "en": "00 Akadimias St, 106 79 Athens, Greece"
+      },
+      "afm": "000000000",
+      "gemi_number": "",
+      "email": "info@nikolaou-law.example",
+      "phone": "+30 210 000 0000",
+      "profession_regulator": {
+        "body": {
+          "el": "Δικηγορικός Σύλλογος Αθηνών (ΔΣΑ)",
+          "en": "Athens Bar Association"
+        },
+        "licence": "00000"
+      },
+      "sector": "law",
+      "uses_contact_form": true,
+      "uses_booking": false,
+      "uses_ga4": false,
+      "uses_maps": true,
+      "theme": {
+        "accent": "#7B2D26",
+        "accent_ink": "#5E211C",
+        "dark": "#111013",
+        "on_dark": "#BDB8C2",
+        "ink": "#1E1D21",
+        "muted": "#5A5660",
+        "bg": "#FFFFFF",
+        "soft": "#F6F3EF",
+        "line": "#E2DBD2",
+        "head_font": "\"EB Garamond\", Georgia, \"Times New Roman\", serif",
+        "body_font": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Arial, sans-serif",
+        "radius": "10px"
+      },
+      "path": "multipage/law"
     }
   }
 }
